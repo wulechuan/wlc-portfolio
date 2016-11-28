@@ -1,0 +1,161 @@
+#app-header {
+    height: 2rem;
+}
+
+#app-header-info-and-links {
+    font-size: 0.6rem;
+    line-height: 2rem;
+    z-index: 2; /* for qrcode floating layers */
+    }
+
+    #app-header-info-and-links .left-part,
+    #app-header-info-and-links .right-part {
+        vertical-align: top;
+        display: inline-block;
+        position: relative;
+        width: 50%;
+    }
+    #app-header-info-and-links .left-part {
+        left: -0.5rem;
+        text-align: left;
+    }
+    #app-header-info-and-links .right-part {
+        right: -0.5rem;
+        text-align: right;
+    }
+
+    #app-header-info-and-links button {
+        margin: 0;
+        padding: 0 0.5rem;
+        white-space: nowrap;
+    }
+
+    #app-header-info-and-links button > .label {
+        width: auto;
+        padding: 0;
+    }
+
+    #app-header-info-and-links button > .iconfont ~ .label {
+        margin-left: 0;
+        padding-left: 0.5rem;
+    }
+
+    #app-header-info-and-links a:hover {
+        text-decoration: none;
+    }
+
+    #app-header-info-and-links .iconfont {
+        font-size: 21px;
+        width: 21px;
+        vertical-align: top;
+        margin: 0;
+    }
+
+    #app-header-info-and-links .toolbar > li {
+        padding: 0;
+        margin: 0;
+    }
+    #app-header-info-and-links .right-part .toolbar > li {
+        margin-left: 0.5rem;
+    }
+
+    #app-header-info-and-links button > .label span,
+    #app-header-info-and-links button,
+    #app-header-info-and-links a {
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 0.5rem;
+        margin: 0;
+    }
+    #app-header-info-and-links button > .label span {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+
+    #app-header-info-and-links .qrcode > img,
+    #app-header-info-and-links .qrcode .qrcode-image {
+        width: 6.4rem;
+        height: 6.4rem;
+    }
+
+
+
+    #app-header-info-and-links .mobile-app button {
+        padding-left: 0.4rem; /* the icon is very thin/narrow */
+    }
+
+    #app-header-info-and-links .mobile-app button > .label {
+        padding-left: 0.2rem; /* the icon is very thin/narrow */
+    }
+
+    #app-header-info-and-links .sns .label {
+        margin-left: 0;
+        display: none;
+    }
+
+    #app-header-info-and-links .sns .weixin .floating-layer .columns {
+        margin: -0.25rem;
+    }
+    #app-header-info-and-links .sns .weixin .floating-layer .col {
+        padding: 0.25rem;
+    }
+
+
+#app-header-chief-bar {
+    border-bottom: 1px solid;
+    }
+
+    #app-header-chief-bar > .width-wrap {
+        height: 4rem;
+    }
+
+	#taijs-brand-block {
+		display: block;
+        height: 2.3rem;
+		position: absolute;
+		left: 0;
+		top: 0;
+        bottom: 0;
+        margin: auto 0;
+	}
+
+    #taijs-brand-block .taijs-logo,
+    #taijs-brand-block .taijs-slogan {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0;
+        margin: 0;
+    }
+    #taijs-brand-block .taijs-logo,
+    #taijs-brand-block .taijs-logo img {
+        width: 6.25rem;
+    }
+    #taijs-brand-block .taijs-slogan {
+        margin-left: 2rem;
+    }
+	#app-header-chief-bar .taijs-logo use.normal，
+	#app-header-chief-bar .taijs-logo use.hover {
+		display: block;
+		position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+	}
+	#app-header-chief-bar .taijs-logo use.normal {
+		opacity: 1;
+        transition: opacity 0.5s ease-in;
+	}
+	#app-header-chief-bar .taijs-logo use.hover {
+		opacity: 0;
+        transition: opacity 0.5s ease-in;
+	}
+	#app-header-chief-bar .taijs-logo:hover use.normal {
+		opacity: 0;
+        transition: opacity 0.5s ease-in;
+	}
+	#app-header-chief-bar .taijs-logo:hover use.hover {
+		opacity: 1;
+        transition: opacity 0.5s ease-in;
+	}

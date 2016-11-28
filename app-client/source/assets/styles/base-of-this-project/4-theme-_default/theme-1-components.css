@@ -1,0 +1,72 @@
+#app-header {
+	background-color: #333;
+	}
+
+	#app-header em,
+	#app-header a:visited,
+	#app-header a:link,
+	#app-header a,
+	#app-header {
+		color: #999;
+	}
+
+	#app-header-info-and-links a:hover,
+	#app-header-info-and-links .floating-layer-set:hover button.simple-look,
+	#app-header-info-and-links button.simple-look:hover {
+		background-color: rgba(255, 255, 255, 0.15);
+	}
+
+	#app-header-chief-bar {
+		background-color: rgba(255, 255, 255, 0.9);
+		border-bottom-color: rgba(160, 160, 160, 0.9);
+	}
+	#app-header-chief-bar hr.vertical {
+		background-color: #c4c4c4;
+	}
+	#app-header-chief-bar .taijs-logo use.normal {
+		fill: #4285F4;
+	}
+	#app-header-chief-bar .taijs-slogan use {
+		fill: #c4c4c4;
+	}
+
+#app-chief-nav {
+	}
+
+	#app-chief-nav .menu,
+	#app-chief-nav .menu .deco {
+		border-color: #e1e1e1;
+		background-color: white;
+	}
+
+	#app-chief-nav .menu.level-2 > .menu-item > a > .label,
+	#app-chief-nav .menu.level-2 > .menu-item > .label {
+		color: #666;
+	}
+
+	#app-chief-nav .menu.level-2 > .menu-item.current-cate > a > .label,
+	#app-chief-nav .menu.level-2 > .menu-item.current-cate > .label,
+	#app-chief-nav .menu.level-2 > .menu-item.sub-menu-shown > a > .label,
+	#app-chief-nav .menu.level-2 > .menu-item.sub-menu-shown > .label,
+	#app-chief-nav .menu.level-2 > .menu-item:hover > a > .label,
+	#app-chief-nav .menu.level-2 > .menu-item:hover > .label {
+		color: white;
+	}
+
+.swiper-container.page-chief-sections {
+	}
+	.swiper-container.page-chief-sections.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+		background-color: transparent;
+	}
+	.swiper-container.page-chief-sections .swiper-pagination-bullet:before {
+		background-color: #757575;
+		background-color: #cca25d;
+		box-shadow: 0 0 0 0 transparent;
+	}
+	.swiper-container.page-chief-sections .swiper-pagination-bullet:hover:before {
+		background-color: #cca25d;
+	}
+	.swiper-container.page-chief-sections .swiper-pagination-bullet.swiper-pagination-bullet-active:before {
+		background: transparent;
+		box-shadow: 0 0 0 2px #cca25d;
+	}

@@ -1,0 +1,4 @@
+node_modules/*
+app-client/_temp
+app-client/build-*
+app-client/*cache

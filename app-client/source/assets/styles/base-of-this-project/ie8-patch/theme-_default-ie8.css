@@ -1,0 +1,182 @@
+hr, hr.dashed {
+    background-color: #d0d0d0\0;
+    }
+
+
+.ie8-input-fake-placeholder {
+    color: #ddd;
+    }
+    .ie8-input-fake-placeholder ~ input.non-empty {
+        background-color: white;
+        filter: none;
+    }
+
+
+button {
+    }
+
+    .pagination [role="button"] > .ie-borders,
+    .pagination button          > .ie-borders {
+        border-color: #dadada;
+    }
+
+    .pagination [role="button"].current > .ie-borders,
+    .pagination button.current          > .ie-borders,
+    [role="button"]                     > .ie-borders,
+    button                              > .ie-borders {
+        border-color: #157dff;
+    }
+
+    .pagination [role="button"] > .ie-borders,
+    .pagination [role="button"] > .ie-bg,
+    .pagination button          > .ie-borders,
+    .pagination button          > .ie-bg {
+        color: #dadada;
+    }
+
+    .pagination [role="button"]:hover > .ie-bg,
+    .pagination button:hover          > .ie-bg {
+        color: #f3f3f3;
+    }
+
+    .pagination [role="button"].page-number.current > .ie-borders,
+    .pagination [role="button"].page-number.current > .ie-bg,
+    .pagination button.page-number.current          > .ie-borders,
+    .pagination button.page-number.current          > .ie-bg,
+    [role="button"]                                 > .ie-borders,
+    [role="button"]                                 > .ie-bg,
+    button                                          > .ie-borders,
+    button                                          > .ie-bg {
+        color: #157dff;
+    }
+
+    .pagination [role="button"].page-number.current:hover > .ie-bg,
+    .pagination button.page-number.current:hover          > .ie-bg,
+    [role="button"]                                       > .ie-bg,
+    button:hover                                          > .ie-bg {
+        color: #3f93ff;
+    }
+
+    *[role="button"].bg-transparent > .ie-bg,
+    button.bg-transparent           > .ie-bg {
+        background-color: transparent;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(startColorStr=#33157dff, endColorStr=#33157dff)";
+            filter:  progid:DXImageTransform.Microsoft.Gradient(startColorStr=#33157dff, endColorStr=#33157dff);
+    }
+    *[role="button"].bg-transparent.color-white > .ie-borders,
+    button.bg-transparent.color-white           > .ie-borders {
+        color: white;
+        border-color: white;
+    }
+    *[role="button"].bg-transparent.color-white > .ie-bg,
+    button.bg-transparent.color-white           > .ie-bg {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(startColorStr=#33FFFFFF, endColorStr=#33FFFFFF)";
+            filter:  progid:DXImageTransform.Microsoft.Gradient(startColorStr=#33FFFFFF, endColorStr=#33FFFFFF);
+    }
+    *[role="button"].bg-transparent.color-red > .ie-borders,
+    button.bg-transparent.color-red           > .ie-borders {
+        color: #ff291d;
+        border-color: #ff291d;
+    }
+    *[role="button"].bg-transparent.color-red > .ie-bg,
+    button.bg-transparent.color-red           > .ie-bg {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(startColorStr=#12ff291d, endColorStr=#12ff291d)";
+            filter:  progid:DXImageTransform.Microsoft.Gradient(startColorStr=#12ff291d, endColorStr=#12ff291d);
+    }
+
+
+label.deco-input .ie-borders {
+    color: #e6e6e6;
+    }
+    label.deco-input input:active ~ .ie-borders,
+    label.deco-input input:focus  ~ .ie-borders {
+        color: #157fdd;
+    }
+
+
+.has-border-triangle > .ie-border-triangle-shadow-matte,
+.ie-shadow-matte {
+    background-color: black;
+    }
+
+
+.corner-marker {
+    }
+    .corner-marker:after,
+    .corner-marker:before {
+        color: #ff291d;
+    }
+
+
+.floating-layer-set {
+    }
+
+    .floating-layer-set.floating-info-set .floating-layer > .ie-border-triangle-shadow-matte,
+    .floating-layer-set.floating-info-set .floating-layer > .ie-shadow .ie-shadow-matte {
+        background-color: #33ddff;
+    }
+
+    .floating-layer-set.floating-info-set .floating-layer > .ie-shadow .ie-shadow-matte {
+        margin: -6px 4px 4px -6px;
+        -ms-filter: "\
+            progid:DXImageTransform.Microsoft.Alpha(opacity=60)\
+            progid:DXImageTransform.Microsoft.Glow(Color=#33ddff, strength=6)\
+            progid:DXImageTransform.Microsoft.Blur(PixelRadius=3)\
+        ";
+        filter: 
+            progid:DXImageTransform.Microsoft.Alpha(opacity=60)
+            progid:DXImageTransform.Microsoft.Glow(Color=#33ddff, strength=6)
+            progid:DXImageTransform.Microsoft.Blur(PixelRadius=3)
+        ;
+    }
+    .floating-layer-set.floating-info-set .floating-layer.has-border-triangle > .ie-border-triangle-shadow-matte {
+        left: 0;
+        top: -24px;
+        margin: 0;
+        filter:
+            progid:DXImageTransform.Microsoft.Matrix(
+                M11=0.7071067811865474,
+                M12=-0.7071067811865477,
+                M21=0.7071067811865477,
+                M22=0.7071067811865474,
+                SizingMethod='auto expand'
+            )
+            progid:DXImageTransform.Microsoft.Alpha(opacity=25)
+            progid:DXImageTransform.Microsoft.Glow(Color=#33ddff, strength=6)
+            progid:DXImageTransform.Microsoft.Blur(PixelRadius=3)
+        ;
+    }
+
+
+.dialog > .deco .ie-bg {
+    color: #222;
+    background-color: #222;
+    }
+
+
+#app-chief-nav {
+    }
+    #app-chief-nav .menu.level-2 > .ie-borders,
+    #app-chief-nav .menu .deco > .ie-borders {
+        color: #e1e1e1;
+        border-color: #e1e1e1;
+    }
+
+
+#my-assets {
+    }
+
+    .search-block > .ie-borders,
+    #my-assets .menu.level-1 > .ie-borders,
+    #my-assets .menu.level-1 > .menu-item > .deco > .ie-borders,
+    #my-assets .menu.level-2 > .ie-borders {
+        color: #e6e6e6;
+        border-color: #e6e6e6;
+    }
+
+    #my-assets .menu.level-1 > .menu-item > .deco .ie-shadow-matte {
+        /* clip: rect(-9px, 200px, 40px, -9px); */
+    }
+    #my-assets .menu.level-2 > .ie-patch {
+        background-color: white;
+    }

@@ -1,0 +1,40 @@
+article {
+	position: static;
+	}
+	article h6,
+	article h5,
+	article h4,
+	article h3,
+	article h2,
+	article h1 {
+		text-align: center;
+	}
+	article h1 {
+		font-size: 1.7rem;
+		font-weight: 300;
+	}
+	article h2 {
+		font-size: 1.5rem;
+		font-weight: 400;
+	}
+	article .ofbl, /* opportunity for breaking line */
+	.ofbl {
+		display: inline-block;
+	}
+
+	ol.list-indices-in-labels {
+		list-style: none;
+		padding-left: 0;
+	}
+	ol.list-indices-in-labels > li {
+		position: relative;
+		padding-left: 3.5rem;	
+	}
+	ol.list-indices-in-labels > li > .label {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	ol.list-indices-in-labels > li.has-p-tag > .label{
+		top: 0.5em;
+	}

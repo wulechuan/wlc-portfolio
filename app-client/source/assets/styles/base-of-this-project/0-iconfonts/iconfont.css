@@ -1,0 +1,30 @@
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1479892041731'); /* IE9*/
+  src: url('iconfont.eot?t=1479892041731#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1479892041731') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1479892041731') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1479892041731#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tencent-weixin-stroke:before { content: "\e63b"; }
+
+.icon-classic-phone-stroke:before { content: "\e63f"; }
+
+.icon-tencent-qq-stroke:before { content: "\e61a"; }
+
+.icon-sina-weibo:before { content: "\e60e"; }
+
+.icon-mobile-phone:before { content: "\e601"; }
+
+.icon-taijs-slogan-zong-you-li-cai-xin-fa-xian:before { content: "\e602"; }
+

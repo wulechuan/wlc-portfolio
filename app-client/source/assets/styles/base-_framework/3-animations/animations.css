@@ -1,0 +1,27 @@
+@-webkit-keyframes fades-in {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes fades-in {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@-webkit-keyframes fades-out {
+	0%   { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes fades-out {
+	0%   { opacity: 1; }
+	100% { opacity: 0; }
+}
+@-webkit-keyframes flickering {
+	0%   { opacity: 1; }
+	50%  { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes flickering {
+	0%   { opacity: 1; }
+	50%  { opacity: 0; }
+	100% { opacity: 1; }
+}

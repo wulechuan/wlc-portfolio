@@ -1,0 +1,22 @@
+.tiles {}
+
+	.tiles > a {
+		text-decoration: none;
+	}
+
+	.tiles > a > .tile,
+	.tiles > .tile {
+		box-sizing: border-box;
+		display: inline-block;
+		vertical-align: top;
+		position: relative;
+		margin: 0;
+		border: 0;
+	}
+
+	.tiles.columns-count-3 > a > .tile,
+	.tiles.columns-count-3 > .tile,
+	.tiles > a > .tile,
+	.tiles > .tile {
+		width: 33.333%;
+	}

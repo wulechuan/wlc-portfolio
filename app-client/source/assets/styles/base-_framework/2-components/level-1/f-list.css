@@ -1,0 +1,19 @@
+/* f-list means function list */
+ol.f-list, ul.f-list {
+	padding: 0;
+	}
+
+	ol.simple-list, ul.simple-list {
+		padding: 0;
+		margin: 0.5em auto;
+	}
+	ol.simple-list > li, ul.simple-list > li {
+		list-style: none;
+	}
+
+	ol.f-list > li, ul.f-list > li {
+		padding: 0;
+		margin: 0;
+		display: block;
+		list-style: none;
+	}

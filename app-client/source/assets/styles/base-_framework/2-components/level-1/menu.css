@@ -1,0 +1,245 @@
+.menu {
+	display: block;
+	position: relative;
+	transform-origin: left top;
+	}
+	.article ul.menu,
+	.article ol.menu,
+	article ul.menu,
+	article ol.menu,
+	ul.menu,
+	ol.menu {
+		padding: 0;
+	}
+	.menu .menu-wrap {
+		position: absolute;
+		display: none;
+		overflow: visible;
+	}
+	.article li.menu-item,
+	article li.menu-item,
+	.menu-item {
+		margin: 0;
+		position: relative;
+		display: block;
+	}
+	.menu.layout-hori > .menu-item::before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 0;
+		overflow: hidden;
+		opacity: 0;
+		width: 0;
+		height: 100%;
+	}
+	.menu.layout-hori > .menu-item.has-sub-menu {
+		padding-right: 10px;
+	}
+	.menu-item > a > .label,
+	.menu-item     > .label {
+		position: relative;
+		z-index: 5;
+
+		box-sizing: border-box;
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0;
+		padding: 8px;
+		max-height: 100%;
+		width: 100%;
+		overflow: hidden;
+	}
+	.menu-item > a > .label,
+	.menu-item     > .label {
+		cursor: inherit;
+	}
+
+	.menu.layout-hori > .menu-item {
+		height: 100%;
+	}
+
+	.menu.layout-hori > .menu-item > a > .label,
+	.menu.layout-hori > .menu-item > .label {
+		text-align: center;
+	}
+
+	.menu-item > a .sub-menu-hint,
+	.menu-item     .sub-menu-hint {
+		display: none;
+	}
+
+	.menu-item.has-sub-menu > a > .sub-menu-hint,
+	.menu-item.has-sub-menu     > .sub-menu-hint,
+	.menu-item.has-sub-menu > a > .label:before,
+	.menu-item.has-sub-menu     > .label:before,
+	.menu-item.has-sub-menu > a > .label:after,
+	.menu-item.has-sub-menu     > .label:after {
+		position: absolute;
+		left: auto;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		direction: rtl;
+		text-align: center;
+		text-indent: 0;
+
+		overflow: hidden;
+		margin: auto 0;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+
+		font-size: 16px;
+
+		-webkit-transition-property: -webkit-transform, color, background-color, opacity, box-shadow;
+		        transition-property:         transform, color, background-color, opacity, box-shadow;
+		    -ms-transition-property:     -ms-transform, color, background-color, opacity, box-shadow;
+		-webkit-transition-duration: 0.2s;
+		        transition-duration: 0.2s;
+		    -ms-transition-duration: 0.2s;
+	}
+	.menu-item.has-sub-menu > a > .sub-menu-hint,
+	.menu-item.has-sub-menu     > .sub-menu-hint {
+		display: block;
+		z-index: 9;
+	}
+	.menu-item.has-sub-menu > a > .sub-menu-hint:after,
+	.menu-item.has-sub-menu     > .sub-menu-hint:after {
+		line-height: inherit;
+	}
+	.menu-item.has-sub-menu > a > .label:before,
+	.menu-item.has-sub-menu     > .label:before {
+		content: none;
+		border-radius: 1000px;
+		background-color: pink;
+		z-index: 1;
+		opacity: 0;
+	}
+	.menu-item.has-sub-menu.coupled-shown > a:hover > .label:before,
+	.menu-item.has-sub-menu.coupled-shown           > .label:hover:before,
+	.menu-item.has-sub-menu > a:hover > .label:before,
+	.menu-item.has-sub-menu           > .label:hover:before {
+		opacity: 1;
+	}
+	.menu-item.has-sub-menu > a > .label:after,
+	.menu-item.has-sub-menu     > .label:after {
+		z-index: 2;
+	}
+
+	.menu-item.has-sub-menu > a > .sub-menu-hint:after,
+	.menu-item.has-sub-menu     > .sub-menu-hint:after,
+	.menu-item.has-sub-menu > a > .label:after,
+	.menu-item.has-sub-menu     > .label:after {
+		font-family:"iconfont" !important;
+		content: '\e600';
+	}
+
+	.menu-item.has-sub-menu > a > .sub-menu-hint ~ .label:before,
+	.menu-item.has-sub-menu     > .sub-menu-hint ~ .label:before {
+		content: '';
+	}
+
+	.menu-item.has-sub-menu > a > .sub-menu-hint ~ .label:after,
+	.menu-item.has-sub-menu     > .sub-menu-hint ~ .label:after {
+		content: none;
+	}
+
+	.menu-item.has-sub-menu > a > .sub-menu-hint,
+	.menu-item.has-sub-menu     > .sub-menu-hint,
+	.menu-item.has-sub-menu > a > .label:after,
+	.menu-item.has-sub-menu     > .label:after {
+		    transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	.menu-item.has-sub-menu:hover > a > .sub-menu-hint,
+	.menu-item.has-sub-menu:hover     > .sub-menu-hint,
+	.menu-item.has-sub-menu:hover > a > .label:after,
+	.menu-item.has-sub-menu:hover     > .label:after {
+		    transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+	}
+	.menu-item.has-sub-menu.coupled-shown > a > .sub-menu-hint,
+	.menu-item.has-sub-menu.coupled-shown     > .sub-menu-hint,
+	.menu-item.has-sub-menu.coupled-shown > a > .label:after,
+	.menu-item.has-sub-menu.coupled-shown     > .label:after {
+		    transform: rotate(-90deg);
+		-ms-transform: rotate(-90deg);
+	}
+
+	.menu-item.has-sub-menu.hover-to-show-coupled > a > .sub-menu-hint,
+	.menu-item.has-sub-menu.hover-to-show-coupled     > .sub-menu-hint,
+	.menu-item.has-sub-menu.hover-to-show-coupled > a > .label:after,
+	.menu-item.has-sub-menu.hover-to-show-coupled     > .label:after {
+	}
+
+	.menu-item.has-sub-menu.hover-to-show-coupled:hover > a > .sub-menu-hint,
+	.menu-item.has-sub-menu.hover-to-show-coupled:hover     > .sub-menu-hint,
+	.menu-item.has-sub-menu.hover-to-show-coupled:hover > a > .label:after,
+	.menu-item.has-sub-menu.hover-to-show-coupled:hover     > .label:after {
+		    transform: rotate(-90deg);
+		-ms-transform: rotate(-90deg);
+	}
+
+	.menu.layout-hori > .menu-item.has-sub-menu > a > .sub-menu-hint,
+	.menu.layout-hori > .menu-item.has-sub-menu     > .sub-menu-hint,
+	.menu.layout-hori > .menu-item.has-sub-menu > a > .label:after,
+	.menu.layout-hori > .menu-item.has-sub-menu     > .label:after {
+	}
+	.menu.layout-hori > .menu-item.has-sub-menu > a > .sub-menu-hint:after,
+	.menu.layout-hori > .menu-item.has-sub-menu     > .sub-menu-hint:after,
+	.menu.layout-hori > .menu-item.has-sub-menu > a > .label:after,
+	.menu.layout-hori > .menu-item.has-sub-menu     > .label:after {
+		content: '\e600';
+	}
+
+	.menu.layout-hori > .menu-item.has-sub-menu.coupled-shown > a > .sub-menu-hint,
+	.menu.layout-hori > .menu-item.has-sub-menu.coupled-shown     > .sub-menu-hint,
+	.menu.layout-hori > .menu-item.has-sub-menu.coupled-shown > a > .label:after,
+	.menu.layout-hori > .menu-item.has-sub-menu.coupled-shown     > .label:after,
+	.menu.layout-hori > .menu-item.has-sub-menu.hover-to-show-coupled:hover > a > .sub-menu-hint,
+	.menu.layout-hori > .menu-item.has-sub-menu.hover-to-show-coupled:hover     > .sub-menu-hint,
+	.menu.layout-hori > .menu-item.has-sub-menu.hover-to-show-coupled:hover > a > .label:after,
+	.menu.layout-hori > .menu-item.has-sub-menu.hover-to-show-coupled:hover     > .label:after {
+		    transform: rotate(-180deg);
+		-ms-transform: rotate(-180deg);
+	}
+
+	.menu-item.has-sub-menu.coupled-shown {
+		z-index: 9;
+	}
+
+	.menu-item:hover {
+		z-index: 10;
+	}
+
+	.menu-item > .deco {
+	/* .deco is not only used for ie8 compatibility, but also for ease of styling menu items */
+		display: none;
+		position: absolute;
+		z-index: 1;
+	}
+
+	.menu-item > .deco ~ .menu-wrap,
+	.menu-item > .deco ~ .menu-item {
+		z-index: 2;
+	}
+
+	.menu-item.has-sub-menu > .deco,
+	.menu-item.has-sub-menu > .menu-wrap,
+	.menu-item.has-sub-menu > .menu {
+		display: block;
+		visibility: hidden;
+		opacity: 0;
+		/* transition-duration: 0.33s; */
+	}
+
+	.touch-off .menu-item.has-sub-menu:hover > .deco,
+	.touch-off .menu-item.has-sub-menu:hover > .menu-wrap,
+	.touch-off .menu-item.has-sub-menu:hover > .menu,
+	.menu-item.has-sub-menu.coupled-shown    > .deco,
+	.menu-item.has-sub-menu.coupled-shown    > .menu-wrap,
+	.menu-item.has-sub-menu.coupled-shown    > .menu {
+		visibility: visible;
+		opacity: 1;
+	}

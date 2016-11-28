@@ -1,0 +1,154 @@
+.row {
+	position: relative;
+	display: block;
+	clear: both;
+	float: none;
+	padding-top: 0!important;
+	padding-bottom: 0!important;
+	}
+
+	.row,
+	.row::before,
+	.row > .ie-bg {
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 100%;
+		background-size: cover;
+	}
+
+	.row > .ie-bg {
+		overflow: hidden;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		height: 100%;
+		left: 50%;
+		top: 0;
+		margin-left: -50%;
+		z-index: 0;
+	}
+
+
+.width-wrap {
+	box-sizing: content-box;
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	clear: both;
+	float: none;
+	z-index: 1;
+	padding: 0;
+	}
+
+
+.content {
+	background-color: transparent;
+}
+
+
+#app-header {
+	position: relative;
+	z-index: 9;
+	display: block;
+	box-sizing: border-box;
+}
+
+#app-footer {
+	position: relative;
+	z-index: 8;
+	display: block;
+	box-sizing: border-box;
+}
+
+#app-body {
+	position: relative;
+	z-index: 1;
+	display: block;
+	box-sizing: border-box;
+}
+
+
+.page-chief-section {
+	position: relative;
+	overflow: hidden;
+	}
+
+	.page-chief-section > .bg-set {
+		position: absolute;
+		display: block;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		overflow: hidden; /* for masking expanded bgs */
+	}
+
+	.page-chief-section > .content *,
+	.page-chief-section > .content {
+		-webkit-transition-property: visibility, opacity, color, border-color, background, width, height, max-width, min-width, max-height, min-height, transform, left, right, top, bottom, margin, padding, border-radius;
+		        transition-property: visibility, opacity, color, border-color, background, width, height, max-width, min-width, max-height, min-height, transform, left, right, top, bottom, margin, padding, border-radius;
+		-webkit-transition-duration: 0.3s;
+		        transition-duration: 0.3s;
+		    -ms-transition-duration: 0.3s;
+	}
+
+	.page-chief-section > .content {
+		position: absolute;
+		display: block;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		padding: 2rem;
+		z-index: 5;
+	}
+
+	.page-chief-section > .bg-set .bg {
+		z-index: 1;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+
+		-webkit-transition-property: none;
+		        transition-property: none;
+		    -ms-transition-property: none;
+		-webkit-transition-duration: 0;
+		        transition-duration: 0;
+		    -ms-transition-duration: 0;
+
+		-webkit-transform: scale(1, 1);
+		        transform: scale(1, 1);
+		    -ms-transform: scale(1, 1);
+	}
+
+
+
+.buttons-in-single-line {
+	margin-top: 18px;
+	margin-bottom: 18px;
+	}
+
+	.buttons-in-single-line input[type="reset"],
+	.buttons-in-single-line input[type="submit"],
+	.buttons-in-single-line input[type="button"],
+	.buttons-in-single-line .button,
+	.buttons-in-single-line [role="button"],
+	.buttons-in-single-line button {
+		margin: 0 0 10px 20px;
+	}
+
+	.buttons-in-single-line *:first-child {
+		margin-left: 0;
+	}
+
+	.dialog .buttons-in-single-line {
+		margin-top: 10px;
+		margin-bottom: 4px;
+	}

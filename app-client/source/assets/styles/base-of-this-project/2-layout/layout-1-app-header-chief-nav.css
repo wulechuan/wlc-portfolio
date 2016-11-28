@@ -1,0 +1,76 @@
+#app-chief-nav {
+    height: 2rem;
+	position: absolute;
+	right: -1rem;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	display: block;
+	padding: 0;
+	}
+
+	#app-chief-nav .menu-item > a > .label,
+	#app-chief-nav .menu-item > .label {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	#app-chief-nav .menu.level-1 {
+		font-size: 0.8rem;
+		margin: 0;
+		}
+
+		#app-chief-nav .menu.level-1 > .menu-item {
+			max-width: 10rem; /* just for safety */
+		}
+
+		#app-chief-nav .menu.level-1 > .menu-item > a > .label,
+		#app-chief-nav .menu.level-1 > .menu-item     > .label {
+			line-height: 1.2;
+		}
+
+		#app-chief-nav .menu.level-1 > .menu-item.has-sub-menu > a > .label::after,
+		#app-chief-nav .menu.level-1 > .menu-item.has-sub-menu     > .label::after {
+			content: none;
+		}
+
+
+	#app-chief-nav .menu-wrap.level-2 {
+		left: 0;
+		top: 100%;
+		margin-top: -10px; 
+		padding: 0;
+		width: 100%;
+		}
+
+		#app-chief-nav .menu.level-2 {
+			font-size: 14px;
+			left: 0;
+			top: 100%;
+			width: 100%;
+			padding: 8px 0;
+
+			box-sizing: content-box;
+			border-width: 1px;
+			border-style: solid;
+			padding-right: 12px;
+			box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.147);
+		}
+		#app-chief-nav .menu.level-2 > .menu-item {
+			margin-right: -12px;
+			line-height: 1.2;
+		}
+
+		#app-chief-nav .menu.level-2 > .menu-item > a > .label,
+		#app-chief-nav .menu.level-2 > .menu-item > .label {
+			padding-top: 7px;
+			padding-bottom: 7px;
+
+			padding-left: 19px;  /* level 2 menu has borders */
+			padding-right: 19px; /* level 2 menu has borders */
+		}
+
+		#app-chief-nav .menu.level-1 > .menu-item.has-sub-menu > a > .label:after,
+		#app-chief-nav .menu.level-1 > .menu-item.has-sub-menu > .label:after {
+			margin-right: 8px!important;
+		}

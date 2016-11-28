@@ -1,0 +1,165 @@
+.dialog {
+	display: block;
+	box-sizing: border-box;
+	position: relative;
+
+	border-radius: 0;
+	border-width: 1px;
+	border-style: solid;
+	overflow: visible; /* for deco borders */
+	}
+
+	.dialog-header {
+		z-index: 2;
+		box-sizing: border-box;
+		clear: both;
+		min-height: 2.4rem;
+		padding: 0.8rem 1rem 0.4rem 1rem;
+		font-size: 0.8rem;
+		line-height: 1.2rem;
+		text-align: center;
+		white-space: normal;
+		text-overflow: ellipsis;
+		border-color: inherit;
+		}
+
+		.dialog-header h1,
+		.dialog-header h2,
+		.dialog-header h3,
+		.dialog-header h4,
+		.dialog-header h5 {
+			display: inline-block;
+			padding: 0.25rem 0.5rem;
+			margin: -0.25rem -0.5rem;
+			line-height: inherit;
+		}
+
+
+	.dialog-footer {
+		z-index: 4;
+		position: absolute;
+		width: auto;
+		margin: 0;
+
+		box-sizing: border-box;
+		clear: both;
+		padding: 0;
+		text-align: center;
+		border-width: 1px 0 0 0;
+		border-style: solid;
+		white-space: nowrap;
+		overflow: hidden;
+		font-size: 0;
+		border-color: inherit;
+		}
+
+		.dialog-footer .col {
+			display: inline-block;
+			vertical-align: top;
+			width: 50%;
+			box-sizing: border-box;
+			text-align: center;
+			border-width: 0;
+			border-color: inherit;
+		}
+
+		.dialog-footer .col ~ .col {
+			border-left-width: 1px;
+			border-left-style: solid;
+		}
+
+		.dialog-footer a[role="button"]:hover,
+		.dialog-footer a[role="button"],
+		.dialog-footer input[type="reset"]:hover,
+		.dialog-footer input[type="reset"],
+		.dialog-footer input[type="button"]:hover,
+		.dialog-footer input[type="button"],
+		.dialog-footer input[type="submit"]:hover,
+		.dialog-footer input[type="submit"],
+		.dialog-footer button:hover,
+		.dialog-footer button {
+			background-color: transparent;
+			border-color: transparent;
+			display: inline-block;
+			vertical-align: top;
+			box-sizing: border-box;
+			font-size: 18px;
+			height: 2.4rem;
+			border-width: 0;
+			line-height: 2.4rem;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+
+	.dialog-body {
+		box-sizing: border-box;
+		position: relative;
+		overflow-x: auto;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		max-height: none;
+		}
+
+		.dialog-body > .content {
+			box-sizing: border-box;
+			padding: 0;
+		}
+
+		.dialog-body {
+			padding: 0;
+		}
+
+		.dialog-body > .content {
+			}
+
+			.dialog-body > .content article {
+				padding: 1.5rem;
+			}
+
+			.dialog-header ~ .dialog-body > .content article {
+				padding-top: 0.5rem;
+			}
+
+			.dialog-body > .content article p {
+				line-height: 1.5;
+			}
+
+
+	.popup-window.has-dialog .dialog {
+		overflow: hidden;
+		border-radius: 0.7rem;
+		border-width: 0;
+		width: 100%;
+		height: 100%;
+		max-width: 100%;
+		max-height: 100%;
+		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+		-webkit-transition-property: none;
+		        transition-property: none;
+		}
+
+		.popup-window.has-dialog .dialog.has-header {
+			padding-top: 2.4rem;
+		}
+
+		.popup-window.has-dialog .dialog.has-footer {
+			padding-bottom: calc(2.4rem + 1px);
+		}
+
+		.popup-window.has-dialog .dialog.has-header .dialog-header {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			height: 2.4rem;
+		}
+
+		.popup-window.has-dialog .dialog.has-footer .dialog-footer {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: auto;
+			bottom: 0;
+		}

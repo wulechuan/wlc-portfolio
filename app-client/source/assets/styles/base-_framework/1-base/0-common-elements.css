@@ -1,0 +1,235 @@
+hr {
+	font-size: 0;
+	line-height: 0;
+	position: relative;
+	margin: 2rem 0;
+	display: block;
+	width: 100%;
+	height: 1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	box-sizing: border-box;
+	}
+	hr.vertical {
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 1px;
+		height: 100%;
+		min-height: 1rem;
+		margin: auto 1rem;
+	}
+	hr::before {
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		height: 0;
+		border-width: 2px 0 0 0;
+		border-style: solid;
+		border-color: inherit!important;
+	}
+	hr.vertical::before {
+		border-width: 0 0 0 2px;
+	}
+	hr.dashed::before {
+		content: '';
+		background-color: transparent;
+		border-style: dashed;
+	}
+
+
+dt,
+dd {
+	position: relative;
+	}
+
+
+[class|="ie"] {
+	display: none;
+	}
+	.ie-bg { /* in case the ie8.css is missing or deprecated */
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: 0;
+	}
+
+
+
+.digits {
+	text-align: right;
+	}
+
+
+.currency {
+	text-align: right;
+	}
+	.currency.currency-rmb::before {
+		transition: none; /* for webkit */
+		content: '¥';
+		margin-right: 0.15em;
+	}
+	.tabular .header .currency.currency-rmb {
+		margin-left: 9px; /* for Chinese parenthese */
+		}
+		.tabular .header .currency.currency-rmb.last-cell {
+			margin-right: -9px; /* for Chinese parenthese */
+		}
+		.header .currency.currency-rmb:before {
+			content: none;
+		}
+
+.illustrate,
+.symbol {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	}
+	.illustrate .locator,
+	.illustrate .illustrate-look,
+	.symbol .locator,
+	.symbol .symbol-look {
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.illustrate .illustrate-look,
+	.symbol .symbol-look {
+		transition-property: all;
+		background-repeat: no-repeat;
+	}
+
+
+.bg {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: 0;
+	width: auto;
+	height: auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+.rounded-corners {
+	border-radius: 5px;
+	}
+	.rounded-corners.r2px {
+		border-radius: 2px;
+	}
+	.rounded-corners.r3px {
+		border-radius: 3px;
+	}
+	.rounded-corners.r4px {
+		border-radius: 4px;
+	}
+	.rounded-corners.r5px {
+		border-radius: 5px;
+	}
+	.rounded-corners.r6px {
+		border-radius: 6px;
+	}
+	.rounded-corners.r7px {
+		border-radius: 7px;
+	}
+	.rounded-corners.r8px {
+		border-radius: 8px;
+	}
+	.rounded-corners.r9px {
+		border-radius: 9px;
+	}
+	.rounded-corners.r10px {
+		border-radius: 10px;
+	}
+	.rounded-corners.r12px {
+		border-radius: 12px;
+	}
+	.rounded-corners.r15px {
+		border-radius: 15px;
+	}
+
+	.rounded-corners.sharp-corner-tl,
+	.rounded-corners.sharp-corner-1 {
+		border-top-left-radius: 0!important;
+	}
+
+	.rounded-corners.sharp-corner-tr,
+	.rounded-corners.sharp-corner-2 {
+		border-top-right-radius: 0!important;
+	}
+
+	.rounded-corners.sharp-corner-br,
+	.rounded-corners.sharp-corner-3 {
+		border-bottom-right-radius: 0!important;
+	}
+
+	.rounded-corners.sharp-corner-bl,
+	.rounded-corners.sharp-corner-4 {
+		border-bottom-left-radius: 0!important;
+	}
+
+
+.rounded-terminals {
+	border-radius: 1000px!important;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	}
+	.rounded-terminals .ie-bg,
+	.rounded-terminals [class|="corner"] {
+		display: none;
+	}
+	.rounded-terminals [class|="corner"]:before {
+		content: none;
+	}
+
+
+.cast-shadow {
+	box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.1);
+	}
+	.cast-inner-shadow {
+		box-shadow: inset 3px 3px 2px 0px rgba(0, 0, 0, 0.1);
+	}
+	.cast-shadow.shadow-large-and-blur {
+		box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.5);
+	}
+	.ie-shadow {
+		display: none;
+	}
+
+
+
+.v-middled:before,
+.content-vertically-middled:before {
+	content: '';
+	display: inline-block;
+	width: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	height: 100%;
+	vertical-align: middle;
+	}
+
+	.v-middled > *,
+	.content-vertically-middled > * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+
+.layout-hori > li {
+	display: inline-block;
+	}

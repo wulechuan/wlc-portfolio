@@ -1,0 +1,54 @@
+.columns {
+	position: relative;
+	}
+	.columns > a > .col,
+	.columns     > .col {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.columns a > li,
+	.columns   > li {
+		list-style: none;
+	}
+	.columns.columns-count-2 > a > li,
+	.columns.columns-count-2     > li,
+	.columns.columns-count-2 > a > .col,
+	.columns.columns-count-2     > .col {
+		width: 50%;
+	}
+	.columns.columns-count-3 > a > li,
+	.columns.columns-count-3     > li,
+	.columns.columns-count-3 > a > .col,
+	.columns.columns-count-3     > .col {
+		width: 33.33%;
+	}
+	.columns.columns-count-4 > a > li,
+	.columns.columns-count-4     > li,
+	.columns.columns-count-4 > a > .col,
+	.columns.columns-count-4     > .col {
+		width: 25%;
+	}
+	.columns.columns-count-5 > a > li,
+	.columns.columns-count-5     > li,
+	.columns.columns-count-5 > a > .col,
+	.columns.columns-count-5     > .col {
+		width: 20%;
+	}
+
+	.columns > hr {
+		display: inline-block;
+		width: 0;
+		height: auto;
+		min-height: 1rem;
+		border-style: solid;
+		border-width: 0 0 0 1px;
+		margin: -0.5rem 0 -0.5rem -1px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: auto;
+		right: auto;
+		z-index: 2;
+	}
+
+

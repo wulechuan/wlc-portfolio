@@ -1,0 +1,101 @@
+.tabular-lists {
+	}
+	.tabular-lists.snap-top {
+		margin-top: 0;
+	}
+
+	.tabular-lists > .block-header,
+	.tabular-lists > .block-footer,
+	.tabular > .header,
+	.tabular > .footer,
+	.tabular > .f-list > li {
+		border-style: solid;
+		border-width: 1px 0;
+		margin: 0 0 -1px 0;
+	}
+
+
+	.tabular a:hover,
+	.tabular a:link,
+	.tabular a {
+		text-decoration: none;
+	}
+
+	.tabular > .header {
+		position: relative;
+		z-index: 1;
+	}
+
+	.tabular > .f-list {
+		}
+		.tabular > .header {
+			position: relative;
+			z-index: 2;
+		}
+		.tabular > .footer {
+			position: relative;
+			z-index: 3;
+		}
+		.tabular > .f-list > li {
+			position: relative;
+			z-index: 0;
+		}
+
+
+		.tabular > .header      > *,
+		.tabular > .footer      > *,
+		.tabular > .f-list > li > * {
+			display: inline-block;
+			vertical-align: top;
+			padding: 6px 8px;
+			margin: -6px -8px;
+		}
+		.tabular > .f-list > li * {
+			transition-duration: 0.1s;
+		}
+		.tabular > .f-list > li .caption-cell {
+		}
+		.tabular > .header .last-cell,
+		.tabular > .footer .last-cell {
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			padding: 0;
+			margin: 0;
+		}
+		.tabular > .f-list > li .last-cell {
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			height: 19px;
+			margin-top: auto;
+			margin-bottom: auto;
+			text-align: right;
+		}
+		.tabular > .f-list > li a {
+			padding: 6px 10px;
+			margin: -6px -10px;
+			border-radius: 4px;
+		}
+		.tabular > .header      input,
+		.tabular > .footer      input,
+		.tabular > .f-list > li input,
+		.tabular > .header      select,
+		.tabular > .footer      select,
+		.tabular > .f-list > li select {
+			margin: 0;
+		}
+
+		.tabular > .header button,
+		.tabular > .footer button,
+		.tabular > .header .button,
+		.tabular > .footer .button,
+		.tabular > .header [role="button"],
+		.tabular > .footer [role="button"] {
+			display: block;
+			margin: -5px 0;
+		}

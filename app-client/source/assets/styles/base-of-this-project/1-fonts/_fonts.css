@@ -1,0 +1,17 @@
+html, body, button, textarea, input, select, option, .font-default {
+	font-family: 'Microsoft Yahei', 'Lucida Grande', 'SimHei', 'SimSun';
+}
+
+/*.tabular > .title,
+.tabular > .f-list > li,
+.pagination [role="button"],
+.pagination button,
+.dialog .dialog-body > .content .article p,
+.breadcrumbs,*/
+#header-info-and-links,
+#app-footer-nav p,
+#app-footer-services-info,
+.font-song-ti {
+	font-family: 'SimSun', serif;
+	font-size: 12px;
+}

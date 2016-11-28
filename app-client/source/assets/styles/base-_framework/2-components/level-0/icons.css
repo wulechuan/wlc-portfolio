@@ -1,0 +1,160 @@
+
+.iconfont {
+	display: inline-block;
+	min-width: 1em;
+	min-height: 1em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	vertical-align: middle;
+	}
+
+
+.icon {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 20px;
+	text-align: center;
+	}
+
+	.icon.icon-in-bg {
+		background-repeat: no-repeat;
+	}
+	.icon.animation,
+	.icon.transition {
+		background-image: none;
+	}
+
+	.icon .icon-face-1,
+	.icon .icon-face-2,
+	.icon.icon-in-bg {
+		transition-duration: 0.6s;
+		transition-timing-function: ease-out;
+	}
+
+	.icon.icon-in-bg {
+		transition-property: background-position, color;
+	}
+
+	.icon .icon-face-1,
+	.icon .icon-face-2 {
+		display: none;
+	}
+
+	.icon.icons-in-elements {
+		position: relative;
+		overflow: hidden;
+		}
+		.icon.icons-in-elements .iconfont,
+		.icon.icons-in-elements .icon-face-part,
+		.icon.icons-in-elements .icon-face-2,
+		.icon.icons-in-elements .icon-face-1,
+		.icon.icons-in-elements .icon-face {
+			display: block;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			top: 0;
+		}
+
+		.icon.icons-in-elements .iconfont {
+			zoom: 1;
+			vertical-align: baseline;
+			font-size: inherit;
+			transition-property: opacity, transform, color, visibility;
+			transition-duration: 0.24s, 0.6s, 0.6s, 0.6s;
+		}
+
+		.icon.icons-in-elements .iconfont:before {
+			margin: 0;
+		}
+
+		.icon.icons-in-elements .icon-face-1 {
+			visibility: visible;
+			opacity: 1;
+			transition-delay: 0.1s;
+		}
+		.icon.icons-in-elements .icon-face-2 {
+			visibility: hidden;
+			opacity: 0;
+			transition-delay: 0s;
+		}
+		.icon-hover-trigger:hover .icon.icons-in-elements .icon-face-1,
+		.icon.icons-in-elements:hover .icon-face-1 {
+			visibility: hidden;
+			opacity: 0;
+			transition-delay: 0s;
+		}
+		.icon-hover-trigger:hover .icon.icons-in-elements .icon-face-2,
+		.icon.icons-in-elements:hover .icon-face-2 {
+			visibility: visible;
+			opacity: 1;
+			transition-delay: 0.1s;
+		}
+
+
+		.icon.icons-in-elements.transition {}
+			.icon.icons-in-elements.transition .icon-face-1,
+			.icon.icons-in-elements.transition .icon-face-2 {
+				transition-property: opacity, top, visibility;
+				transition-duration: 0.24s, 0.6s, 0.6s;
+			}
+
+			.icon.icons-in-elements.transition .icon-face-1 {
+				top: 0;
+				transition-delay: 0s;
+			}
+			.icon.icons-in-elements.transition .icon-face-2 {
+				top: 100%;
+				transition-delay: 0s;
+			}
+			.icon-hover-trigger:hover .icon.icons-in-elements.transition .icon-face-1,
+			.icon.icons-in-elements.transition:hover .icon-face-1 {
+				top: -100%;
+				transition-delay: 0s;
+			}
+			.icon-hover-trigger:hover .icon.icons-in-elements.transition .icon-face-2,
+			.icon.icons-in-elements.transition:hover .icon-face-2 {
+				top: 0;
+				transition-delay: 0s;
+			}
+
+		.icon.icons-in-elements.animation {
+			}
+			.icon.icons-in-elements.animation,
+			.icon.icons-in-elements.animation .icon-face-1,
+			.icon.icons-in-elements.animation .icon-face-2 {
+				transition-duration: 0.3s;
+			}
+
+			.icon.icons-in-elements.animation .icon-face-1,
+			.icon.icons-in-elements.animation .icon-face-2 {
+				top: 0;
+			}
+
+			.icon.icons-in-elements.animation .icon-face-1 {
+				transform: translateY(0px);
+				-ms-transform: translateY(0px); /* ie9 */
+				animation-name: icon-face-1-slides-downwards;
+			}
+			.icon.icons-in-elements.animation .icon-face-2 {
+				transform: translateY(100%);
+				-ms-transform: translateY(100%); /* ie9 */
+				animation-name: icon-face-2-slides-downwards;
+			}
+			.icon-hover-trigger:hover .icon.icons-in-elements.animation .icon-face-1,
+			.icon.icons-in-elements.animation:hover .icon-face-1 {
+				transform: translateY(-100%);
+				-ms-transform: translateY(-100%); /* ie9 */
+				animation-name: icon-face-1-slides-upwards;
+			}
+			.icon-hover-trigger:hover .icon.icons-in-elements.animation .icon-face-2,
+			.icon.icons-in-elements.animation:hover .icon-face-2 {
+				transform: translateY(0px);
+				-ms-transform: translateY(0px); /* ie9 */
+				animation-name: icon-face-2-slides-upwards;
+			}
+

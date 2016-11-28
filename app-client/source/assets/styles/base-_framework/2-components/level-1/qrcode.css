@@ -1,0 +1,13 @@
+.qrcode > img,
+.qrcode .qrcode-image {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: contain;
+	}
+
+	.qrcode .figcaption {
+		text-align: center;
+	}

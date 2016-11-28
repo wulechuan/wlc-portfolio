@@ -1,0 +1,15 @@
+.actor {
+	-webkit-transition: transform 1.5s -0.3s ease-out;
+	        transition: transform 1.5s -0.3s ease-out;
+
+	-webkit-transition-timing-function: cubic-bezier(0.6, 1.12, 0.79, 1);
+	        transition-timing-function: cubic-bezier(0.6, 1.12, 0.79, 1);
+
+	-webkit-transform: translate3d(0, 7.9rem, 0);
+	        transform: translate3d(0, 7.9rem, 0);
+	}
+	.actor.acting {
+		-webkit-transform: translate3d(0, 0, 0)!important;
+		        transform: translate3d(0, 0, 0)!important;
+	}
+

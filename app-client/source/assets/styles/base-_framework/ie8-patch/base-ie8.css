@@ -1,0 +1,1048 @@
+.ie8-input-fake-placeholder {
+	display: block;
+	position: absolute;
+	}
+	.ie8-input-fake-placeholder ~ input {
+		background-color: transparent;
+		/* filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#AAFFFFFF, endColorstr=#AAFFFFFF); */
+	}
+
+.content {
+	background-color: inherit;
+}
+
+.font-important,
+.ie-8-text-anti-alias,
+.icon.icons-in-elements .iconfont { /* anti-aliasing */
+	background-color: white;
+	-ms-filter: "\
+		progid:DXImageTransform.Microsoft.Chroma(color=white)\
+	";
+	filter:
+		progid:DXImageTransform.Microsoft.Chroma(color=white)
+	;
+}
+
+
+.has-border-triangle {
+	}
+
+	.has-border-triangle > .ie-border-triangle-shadow-matte,
+	.has-border-triangle > .ie-border-triangle {
+		box-sizing: border-box;
+		position: absolute;
+		display: block;
+		width: 16px;
+		height: 16px;
+		padding: 0;
+		margin: 0;
+	}
+
+	.has-border-triangle > .ie-border-triangle-shadow-matte {
+		z-index: 0;
+	}
+
+	.has-border-triangle > .ie-border-triangle {
+		z-index: 1;
+		border-width: inherit!important;
+		border-style: inherit!important;
+		border-color: inherit!important;
+		background-color: inherit!important;
+	}
+
+	.has-border-triangle > .ie-border-triangle-shadow-matte,
+	.has-border-triangle > .ie-border-triangle,
+	.has-border-triangle.border-triangle-at-top > .ie-border-triangle-shadow-matte,
+	.has-border-triangle.border-triangle-at-top > .ie-border-triangle {
+		left: 50%;
+		top: 0;
+		margin-top: -11px;
+		margin-left: -11px;
+	}
+	.has-border-triangle.border-triangle-at-bottom > .ie-border-triangle-shadow-matte,
+	.has-border-triangle.border-triangle-at-bottom > .ie-border-triangle {
+		left: 50%;
+		top: auto;
+		bottom: 0;
+		margin-bottom: -8px;
+		margin-left: -8px;
+	}
+	.has-border-triangle > .ie-border-triangle {
+		clip: rect(0px, 100px, 10px, 0px);
+
+		-ms-filter: "\
+			progid:DXImageTransform.Microsoft.Matrix(\
+				M11=0.7071067811865474,\
+				M12=-0.7071067811865477,\
+				M21=0.7071067811865477,\
+				M22=0.7071067811865474,\
+				SizingMethod='auto expand'\
+			)\
+		";
+		filter:
+			progid:DXImageTransform.Microsoft.Matrix(
+				M11=0.7071067811865474,
+				M12=-0.7071067811865477,
+				M21=0.7071067811865477,
+				M22=0.7071067811865474,
+				SizingMethod='auto expand'
+			)
+		;
+	}
+
+
+
+.ie-borders,
+.ie-bg {
+	overflow: visible!important;
+
+	display: block;
+	position: absolute;
+	border-style: solid;
+	border-width: 0;
+	z-index: 0;
+
+	padding: 0;
+	margin: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	}
+
+	.ie-borders:before,
+	.ie-borders:after,
+	.ie-borders {
+		background-color: transparent!important;
+	}
+
+	.ie-shadow ~ .content {
+		background-color: inherit;
+		position: relative;
+		z-index: 2;
+	}
+
+	.ie-bg ~ .content {
+		background-color: transparent;
+		position: relative;
+		z-index: 2;
+	}
+
+
+label.deco-input {
+	padding: 4px;
+	}
+	label.deco-input .ie-borders {
+		border-width: 0px;
+	}
+
+	label.deco-input .ie-borders [class|="corner"] {
+		display: block;
+	}
+
+
+
+.cast-shadow {
+	position: relative;
+	}
+	.cast-shadow > .ie-bg {
+		color: white;
+		/* background-color: white; */
+	}
+	.ie-shadow {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		z-index: 0;
+		}
+		.cast-shadow > .ie-shadow {
+			display: block;
+		}
+		.ie-shadow .ie-shadow-matte {
+			display: block;
+			position: absolute;
+			z-index: 0;
+
+			background-color: black;
+			-ms-filter: "\
+				progid:DXImageTransform.Microsoft.Alpha(opacity=15)\
+				progid:DXImageTransform.Microsoft.Blur(PixelRadius=2)\
+				progid:DXImageTransform.Microsoft.Blur(PixelRadius=5)\
+			";
+			filter: 
+				progid:DXImageTransform.Microsoft.Alpha(opacity=15)
+				progid:DXImageTransform.Microsoft.Blur(PixelRadius=2)
+				progid:DXImageTransform.Microsoft.Blur(PixelRadius=5)
+			;
+			left: -4px;
+			top: -4px;
+			right: 4px;
+			bottom: 4px;
+		}
+		.shadow-large-and-blur > .ie-shadow .ie-shadow-matte {
+			-ms-filter: "\
+				progid:DXImageTransform.Microsoft.Alpha(opacity=36)\
+				progid:DXImageTransform.Microsoft.Blur(PixelRadius=8)\
+				progid:DXImageTransform.Microsoft.Blur(PixelRadius=12)\
+			";
+			filter:
+				progid:DXImageTransform.Microsoft.Alpha(opacity=36)
+				progid:DXImageTransform.Microsoft.Blur(PixelRadius=8)
+				progid:DXImageTransform.Microsoft.Blur(PixelRadius=12)
+			;
+			left: -24px;
+			top: -24px;
+			right: 14px;
+			bottom: 14px;
+		}
+	.cast-shadow > .ie-bg {
+		z-index: 1;
+	}
+	.cast-shadow > .ie-bg ~ .content {
+		z-index: 2;
+	}
+	.cast-shadow > .label {
+		z-index: 2;
+	}
+
+.pagination [role="button"],
+.pagination button,
+.rounded-terminals,
+.rounded-corners {
+	position: relative;
+	border-color: transparent!important;
+	background-color: transparent!important;
+}
+
+
+.rounded-corners {
+	}
+
+	/* ----- rounded-corners: definition for borders and bgs begin ----- */
+
+	.pagination [role="button"] > .ie-borders:before,
+	.pagination [role="button"] > .ie-borders:after,
+	.pagination button          > .ie-borders:before,
+	.pagination button          > .ie-borders:after,
+	.rounded-corners            > .ie-borders:before,
+	.rounded-corners            > .ie-borders:after {
+		content: '';
+		display: block;
+		box-sizing: border-box;
+		position: absolute;
+		border-style: inherit!important;
+		border-color: inherit!important;
+		background-color: transparent!important;
+		overflow: hidden;
+	}
+	.pagination [role="button"] > .ie-bg:before,
+	.pagination [role="button"] > .ie-bg:after,
+	.pagination button          > .ie-bg:before,
+	.pagination button          > .ie-bg:after,
+	.rounded-corners            > .ie-bg:before,
+	.rounded-corners            > .ie-bg:after {
+		font-family: 'iconfont'!important;
+		content: '\e681';
+		display: block;
+		box-sizing: border-box;
+		position: absolute;
+		border-style: none!important;
+		border-color: transparent!important;
+		background-color: inherit!important;
+		overflow: hidden!important;
+
+		font-size: 2000px;
+		text-indent: -800px;
+		line-height: 1000px;
+	}
+
+	.pagination [role="button"] > .ie-borders:before,
+	.pagination button          > .ie-borders:before,
+	.rounded-corners            > .ie-borders:before {
+		border-width: 1px 0!important;
+	}
+	.pagination [role="button"] > .ie-borders:after,
+	.pagination button          > .ie-borders:after,
+	.rounded-corners            > .ie-borders:after {
+		border-width: 0 1px!important;
+	}
+
+	.pagination [role="button"] > .ie-borders:before,
+	.pagination [role="button"] > .ie-bg:before,
+	.pagination button          > .ie-borders:before,
+	.pagination button          > .ie-bg:before,
+	.rounded-corners            > .ie-borders:before,
+	.rounded-corners            > .ie-bg:before {
+		left: 0px;
+		right: 0px;
+	}
+	.pagination [role="button"] > .ie-borders:after,
+	.pagination [role="button"] > .ie-bg:after,
+	.pagination button          > .ie-borders:after,
+	.pagination button          > .ie-bg:after,
+	.rounded-corners            > .ie-borders:after,
+	.rounded-corners            > .ie-bg:after {
+		top: 0px;
+		bottom: 0px;
+	}
+
+
+
+
+	.rounded-corners > .ie-borders,
+	.rounded-corners > .ie-bg {
+		left: 13px;
+		right: 13px;
+		top: 13px;
+		bottom: 13px;
+		}
+
+		.has-borders.rounded-corners    > .ie-borders,
+		.has-borders.rounded-corners    > .ie-bg,
+		.deco-input.rounded-corners     > .ie-borders,
+		.deco-input.rounded-corners     > .ie-bg,
+		[role="button"].rounded-corners > .ie-borders,
+		[role="button"].rounded-corners > .ie-bg,
+		button.rounded-corners          > .ie-borders,
+		button.rounded-corners          > .ie-bg {
+			 /* compensates for borders of parent */
+			left: 12px;
+			right: 12px;
+			top: 12px;
+			bottom: 12px;
+			margin: 0px;
+		}
+
+		.rounded-corners            > .ie-borders:before {
+			top: -12.96px;
+			bottom: -13.14px;
+		}
+		.rounded-corners            > .ie-borders:after {
+			left: -13.14px;
+			right: -12.89px;
+		}
+		.rounded-corners            > .ie-bg:before {
+			top: -12.14px;
+			bottom: -12.14px;
+		}
+		.rounded-corners            > .ie-bg:after {
+			left: -12.14px;
+			right: -11.86px;
+		}
+
+
+	.pagination [role="button"] > .ie-borders,
+	.pagination [role="button"] > .ie-bg,
+	.pagination button          > .ie-borders,
+	.pagination button          > .ie-bg {
+		left: 5px;
+		right: 5px;
+		top: 5px;
+		bottom: 5px;
+		}
+
+		.pagination [role="button"] > .ie-borders:before,
+		.pagination button          > .ie-borders:before {
+			top: -5.96px;
+			bottom: -6.14px;
+		}
+		.pagination [role="button"] > .ie-borders:after,
+		.pagination button          > .ie-borders:after {
+			left: -6.14px;
+			right: -5.89px;
+		}
+		.pagination [role="button"] > .ie-bg:before,
+		.pagination button          > .ie-bg:before {
+			top: -5.14px;
+			bottom: -5.14px;
+		}
+		.pagination [role="button"] > .ie-bg:after,
+		.pagination button          > .ie-bg:after {
+			left: -5.14px;
+			right: -5.86px;
+		}
+
+
+	.pagination [role="button"]    > .ie-bg,
+	.pagination button             > .ie-bg,
+	[role="button"].bg-transparent > .ie-bg,
+	button.bg-transparent          > .ie-bg {
+		visibility: hidden;
+	}
+
+	.pagination [role="button"].page-number.current > .ie-bg,
+	.pagination [role="button"]:hover               > .ie-bg,
+	.pagination button.page-number.current          > .ie-bg,
+	.pagination button:hover                        > .ie-bg,
+	[role="button"].bg-transparent:hover            > .ie-bg,
+	button.bg-transparent:hover                     > .ie-bg {
+		visibility: visible;
+	}
+
+	*[role="button"].bg-transparent > .ie-bg,
+	button.bg-transparent           > .ie-bg {
+		left: -0.66px;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		}
+
+		/* real transparent button need no icontexts for corners, nor those for bg fills */
+		*[role="button"].bg-transparent > .ie-bg:before,
+        *[role="button"].bg-transparent > .ie-bg:after,
+		button.bg-transparent           > .ie-bg:before,
+        button.bg-transparent           > .ie-bg:after {
+            content: none!important;
+        }
+		*[role="button"].bg-transparent > .ie-bg [class|="corner"],
+        button.bg-transparent           > .ie-bg [class|="corner"] {
+            display: none;
+        }
+
+
+	/* ----- rounded-corners: definition for borders and bgs end ------- */
+
+
+
+	/* ----- rounded-corners: definition for corners begin ----- */
+
+	.pagination [role="button"] > .ie-borders [class|="corner"],
+	.pagination [role="button"] > .ie-bg      [class|="corner"],
+	.pagination button          > .ie-borders [class|="corner"],
+	.pagination button          > .ie-bg      [class|="corner"],
+	.rounded-corners            > .ie-borders [class|="corner"],
+	.rounded-corners            > .ie-bg      [class|="corner"] {
+		font-family: 'iconfont'!important;
+		display: block;
+		position: absolute;
+		white-space: nowrap;
+		overflow: hidden;
+		z-index: 0;
+		padding: 0;
+		margin: 0;
+
+		border: none;
+		font-style: normal!important;
+		font-weight: normal!important;
+		background-repeat: no-repeat!important;
+	}
+
+
+	.rounded-corners > .ie-borders [class|="corner"],
+	.rounded-corners > .ie-bg      [class|="corner"] {
+		width: 14px;
+		height: 14px;
+		}
+
+		.rounded-corners > .ie-borders .corner-1,
+		.rounded-corners > .ie-borders .corner-2,
+		.rounded-corners > .ie-bg      .corner-1,
+		.rounded-corners > .ie-bg      .corner-2 {
+			top: -13.31px;
+		}
+		button.rounded-corners > .ie-borders .corner-1,
+		button.rounded-corners > .ie-borders .corner-2,
+		button.rounded-corners > .ie-bg      .corner-1,
+		button.rounded-corners > .ie-bg      .corner-2 {
+			top: -13.45px;
+		}
+		.rounded-corners > .ie-borders .corner-1,
+		.rounded-corners > .ie-borders .corner-4,
+		.rounded-corners > .ie-bg      .corner-1,
+		.rounded-corners > .ie-bg      .corner-4 {
+			left: -13.31px;
+		}
+		.rounded-corners.sharp-corner-tl > .ie-borders .corner-1,
+		.rounded-corners.sharp-corner-1  > .ie-borders .corner-1,
+		.rounded-corners.sharp-corner-bl > .ie-borders .corner-4,
+		.rounded-corners.sharp-corner-4  > .ie-borders .corner-4,
+		.rounded-corners.sharp-corner-tl > .ie-bg      .corner-1,
+		.rounded-corners.sharp-corner-1  > .ie-bg      .corner-1,
+		.rounded-corners.sharp-corner-bl > .ie-bg      .corner-4,
+		.rounded-corners.sharp-corner-4  > .ie-bg      .corner-4 {
+			left: -13.31px;
+		}
+		.rounded-corners > .ie-borders .corner-2,
+		.rounded-corners > .ie-borders .corner-3,
+		.rounded-corners > .ie-bg      .corner-2,
+		.rounded-corners > .ie-bg      .corner-3 {
+			right: -12.96px;
+		}
+		*[role="button"].rounded-corners > .ie-bg .corner-2,
+		*[role="button"].rounded-corners > .ie-bg .corner-3,
+		button.rounded-corners           > .ie-bg .corner-2,
+		button.rounded-corners           > .ie-bg .corner-3 {
+			right: -13.14px;
+		}
+		.rounded-corners.sharp-corner-tr > .ie-borders .corner-2,
+		.rounded-corners.sharp-corner-2  > .ie-borders .corner-2,
+		.rounded-corners.sharp-corner-br > .ie-borders .corner-3,
+		.rounded-corners.sharp-corner-3  > .ie-borders .corner-3,
+		.rounded-corners.sharp-corner-tr > .ie-bg      .corner-2,
+		.rounded-corners.sharp-corner-2  > .ie-bg      .corner-2,
+		.rounded-corners.sharp-corner-br > .ie-bg      .corner-3,
+		.rounded-corners.sharp-corner-3  > .ie-bg      .corner-3 {
+			right: -12.87px;
+		}
+		.rounded-corners > .ie-borders .corner-3,
+		.rounded-corners > .ie-borders .corner-4,
+		.rounded-corners > .ie-bg      .corner-3,
+		.rounded-corners > .ie-bg      .corner-4 {
+			bottom: -13.45px;
+		}
+		button.rounded-corners > .ie-borders .corner-3,
+		button.rounded-corners > .ie-borders .corner-4,
+		button.rounded-corners > .ie-bg      .corner-3,
+		button.rounded-corners > .ie-bg      .corner-4 {
+			bottom: -13.35px;
+		}
+
+
+	.pagination [role="button"] > .ie-borders [class|="corner"],
+	.pagination [role="button"] > .ie-bg      [class|="corner"],
+	.pagination button          > .ie-borders [class|="corner"],
+	.pagination button          > .ie-bg      [class|="corner"] {
+		width: 7px;
+		height: 7px;
+		}
+
+		.pagination [role="button"] > .ie-borders .corner-1,
+		.pagination [role="button"] > .ie-borders .corner-2,
+		.pagination [role="button"] > .ie-bg      .corner-1,
+		.pagination [role="button"] > .ie-bg      .corner-2,
+		.pagination button          > .ie-borders .corner-1,
+		.pagination button          > .ie-borders .corner-2,
+		.pagination button          > .ie-bg      .corner-1,
+		.pagination button          > .ie-bg      .corner-2 {
+			top: -6.31px;
+		}
+		.pagination [role="button"] > .ie-borders .corner-1,
+		.pagination [role="button"] > .ie-borders .corner-4,
+		.pagination [role="button"] > .ie-bg      .corner-1,
+		.pagination [role="button"] > .ie-bg      .corner-4,
+		.pagination button          > .ie-borders .corner-1,
+		.pagination button          > .ie-borders .corner-4,
+		.pagination button          > .ie-bg      .corner-1,
+		.pagination button          > .ie-bg      .corner-4 {
+			left: -6.12px;
+		}
+
+		.pagination [role="button"] > .ie-borders .corner-2,
+		.pagination [role="button"] > .ie-borders .corner-3,
+		.pagination [role="button"] > .ie-bg      .corner-2,
+		.pagination [role="button"] > .ie-bg      .corner-3,
+		.pagination button          > .ie-borders .corner-2,
+		.pagination button          > .ie-borders .corner-3,
+		.pagination button          > .ie-bg      .corner-2,
+		.pagination button          > .ie-bg      .corner-3 {
+			right: -5.94px;
+		}
+
+		.pagination [role="button"] > .ie-borders .corner-3,
+		.pagination [role="button"] > .ie-borders .corner-4,
+		.pagination [role="button"] > .ie-bg      .corner-3,
+		.pagination [role="button"] > .ie-bg      .corner-4,
+		.pagination button          > .ie-borders .corner-3,
+		.pagination button          > .ie-borders .corner-4,
+		.pagination button          > .ie-bg      .corner-3,
+		.pagination button          > .ie-bg      .corner-4 {
+			bottom: -6.05px;
+		}
+
+	.pagination [role="button"] > .ie-borders [class|="corner"]:before,
+	.pagination [role="button"] > .ie-bg      [class|="corner"]:before,
+	.pagination button          > .ie-borders [class|="corner"]:before,
+	.pagination button          > .ie-bg      [class|="corner"]:before,
+	.rounded-corners            > .ie-borders [class|="corner"]:before,
+	.rounded-corners            > .ie-bg      [class|="corner"]:before {
+		display: block;
+		position: absolute;
+		white-space: nowrap;
+		text-indent: 0;
+
+		padding: 0;
+		margin: 0;
+		width:  50px;
+		height: 50px;
+
+		background-repeat: no-repeat!important;
+
+		/* the original design was 40px*40px, which makes the strokes being 1px wide */
+		font-size: 40px;
+		}
+		.pagination [role="button"] > .ie-borders .corner-1:before,
+		.pagination [role="button"] > .ie-borders .corner-2:before,
+		.pagination [role="button"] > .ie-bg      .corner-1:before,
+		.pagination [role="button"] > .ie-bg      .corner-2:before,
+		.pagination button          > .ie-borders .corner-1:before,
+		.pagination button          > .ie-borders .corner-2:before,
+		.pagination button          > .ie-bg      .corner-1:before,
+		.pagination button          > .ie-bg      .corner-2:before,
+		.rounded-corners            > .ie-borders .corner-1:before,
+		.rounded-corners            > .ie-borders .corner-2:before,
+		.rounded-corners            > .ie-bg      .corner-1:before,
+		.rounded-corners            > .ie-bg      .corner-2:before {
+			top: 0;
+			line-height: 37px;
+		}
+		.pagination [role="button"] > .ie-borders .corner-3:before,
+		.pagination [role="button"] > .ie-borders .corner-4:before,
+		.pagination [role="button"] > .ie-bg      .corner-3:before,
+		.pagination [role="button"] > .ie-bg      .corner-4:before,
+		.pagination button          > .ie-borders .corner-3:before,
+		.pagination button          > .ie-borders .corner-4:before,
+		.pagination button          > .ie-bg      .corner-3:before,
+		.pagination button          > .ie-bg      .corner-4:before,
+		.rounded-corners            > .ie-borders .corner-3:before,
+		.rounded-corners            > .ie-borders .corner-4:before,
+		.rounded-corners            > .ie-bg      .corner-3:before,
+		.rounded-corners            > .ie-bg      .corner-4:before {
+			line-height: 55.88px;
+			bottom: 0;
+		}
+
+		.pagination [role="button"] > .ie-borders .corner-1:before,
+		.pagination [role="button"] > .ie-borders .corner-4:before,
+		.pagination [role="button"] > .ie-bg      .corner-1:before,
+		.pagination [role="button"] > .ie-bg      .corner-4:before,
+		.pagination button          > .ie-borders .corner-1:before,
+		.pagination button          > .ie-borders .corner-4:before,
+		.pagination button          > .ie-bg      .corner-1:before,
+		.pagination button          > .ie-bg      .corner-4:before,
+		.rounded-corners            > .ie-borders .corner-1:before,
+		.rounded-corners            > .ie-borders .corner-4:before,
+		.rounded-corners            > .ie-bg      .corner-1:before,
+		.rounded-corners            > .ie-bg      .corner-4:before {
+			left: 0;
+		}
+		.pagination [role="button"] > .ie-borders .corner-2:before,
+		.pagination [role="button"] > .ie-borders .corner-3:before,
+		.pagination [role="button"] > .ie-bg      .corner-2:before,
+		.pagination [role="button"] > .ie-bg      .corner-3:before,
+		.pagination button          > .ie-borders .corner-2:before,
+		.pagination button          > .ie-borders .corner-3:before,
+		.pagination button          > .ie-bg      .corner-2:before,
+		.pagination button          > .ie-bg      .corner-3:before,
+		.rounded-corners            > .ie-borders .corner-2:before,
+		.rounded-corners            > .ie-borders .corner-3:before,
+		.rounded-corners            > .ie-bg      .corner-2:before,
+		.rounded-corners            > .ie-bg      .corner-3:before {
+			text-align: right;
+			direction: rtl;
+			right: 0;
+		}
+
+	.rounded-corners       > .ie-borders [class|="corner"]:before { content: '\e665'; }
+	.rounded-corners.r2px  > .ie-borders [class|="corner"]:before { content: '\e662'; }
+	.rounded-corners.r3px  > .ie-borders [class|="corner"]:before { content: '\e663'; }
+	.rounded-corners.r4px  > .ie-borders [class|="corner"]:before { content: '\e664'; }
+	.rounded-corners.r5px  > .ie-borders [class|="corner"]:before { content: '\e665'; }
+	.rounded-corners.r6px  > .ie-borders [class|="corner"]:before { content: '\e666'; }
+	.rounded-corners.r7px  > .ie-borders [class|="corner"]:before { content: '\e667'; }
+	.rounded-corners.r8px  > .ie-borders [class|="corner"]:before { content: '\e668'; }
+	.rounded-corners.r9px  > .ie-borders [class|="corner"]:before { content: '\e669'; }
+	.rounded-corners.r10px > .ie-borders [class|="corner"]:before { content: '\e66a'; }
+	.rounded-corners.r12px > .ie-borders [class|="corner"]:before { content: '\e66b'; }
+	.rounded-corners.r15px > .ie-borders [class|="corner"]:before { content: '\e66c'; }
+
+	.rounded-corners       > .ie-bg      [class|="corner"]:before { content: '\e684'; }
+	.rounded-corners.r2px  > .ie-bg      [class|="corner"]:before { content: '\e681'; }
+	.rounded-corners.r3px  > .ie-bg      [class|="corner"]:before { content: '\e682'; }
+	.rounded-corners.r4px  > .ie-bg      [class|="corner"]:before { content: '\e683'; }
+	.rounded-corners.r5px  > .ie-bg      [class|="corner"]:before { content: '\e684'; }
+	.rounded-corners.r6px  > .ie-bg      [class|="corner"]:before { content: '\e685'; }
+	.rounded-corners.r7px  > .ie-bg      [class|="corner"]:before { content: '\e686'; }
+	.rounded-corners.r8px  > .ie-bg      [class|="corner"]:before { content: '\e687'; }
+	.rounded-corners.r9px  > .ie-bg      [class|="corner"]:before { content: '\e688'; }
+	.rounded-corners.r10px > .ie-bg      [class|="corner"]:before { content: '\e689'; }
+	.rounded-corners.r12px > .ie-bg      [class|="corner"]:before { content: '\e68a'; }
+	.rounded-corners.r15px > .ie-bg      [class|="corner"]:before { content: '\e68b'; }
+
+	.pagination [role="button"]                     > .ie-borders [class|="corner"]:before,
+	.pagination button                              > .ie-borders [class|="corner"]:before { content: '\e662'; }
+
+	.pagination [role="button"]:hover               > .ie-bg      [class|="corner"]:before,
+	.pagination [role="button"].page-number.current > .ie-bg      [class|="corner"]:before,
+	.pagination button:hover                        > .ie-bg      [class|="corner"]:before,
+	.pagination button.page-number.current          > .ie-bg      [class|="corner"]:before { content: '\e681'; }
+
+
+	.sharp-corner-tl > .ie-borders .corner-1:before,
+	.sharp-corner-1  > .ie-borders .corner-1:before,
+
+	.sharp-corner-tr > .ie-borders .corner-2:before,
+	.sharp-corner-2  > .ie-borders .corner-2:before,
+
+	.sharp-corner-br > .ie-borders .corner-3:before,
+	.sharp-corner-3  > .ie-borders .corner-3:before,
+
+	.sharp-corner-bl > .ie-borders .corner-4:before,
+	.sharp-corner-4  > .ie-borders .corner-4:before {
+		content: '\e660'!important;
+	}
+
+	.sharp-corner-tl > .ie-bg      .corner-1:before,
+	.sharp-corner-1  > .ie-bg      .corner-1:before,
+
+	.sharp-corner-tr > .ie-bg      .corner-2:before,
+	.sharp-corner-2  > .ie-bg      .corner-2:before,
+
+	.sharp-corner-br > .ie-bg      .corner-3:before,
+	.sharp-corner-3  > .ie-bg      .corner-3:before,
+
+	.sharp-corner-bl > .ie-bg      .corner-4:before,
+	.sharp-corner-4  > .ie-bg      .corner-4:before {
+		content: '\e680'!important;
+	}
+
+	/* ----- rounded-corners: definition for corners end ------- */
+
+
+.rounded-terminals {
+	}
+
+	.rounded-terminals > .ie-bg {
+		margin: -1px;
+		left: 1.5em;
+		right: 1.5em;
+		top: 0;
+		bottom: 0;
+		}
+
+		.rounded-terminals > .ie-bg .corner-1,
+		.rounded-terminals > .ie-bg .corner-2 {
+			width: 1.5em;
+		}
+
+		.rounded-terminals > .ie-bg .corner-1 {
+			left: -1.5em;
+			background-position: left top;
+		}
+		.rounded-terminals > .ie-bg .corner-2 {
+			right: -1.5em;
+			background-position: right top;
+		}
+
+		.rounded-terminals > .ie-bg:before {
+			content: '';
+			display: block;
+			box-sizing: border-box;
+			position: absolute;
+			border-width: 1px 0!important;
+			border-style: inherit!important;
+			border-color: inherit!important;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+
+	.rounded-terminals > .ie-bg [class|="corner"] {
+		display: block;
+		position: absolute;
+		height: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		z-index: 0;
+		padding: 0;
+		margin: 0;
+
+		/* filter: alpha(opacity=100); */
+
+		border: none!important;
+		font-style: normal!important;
+		font-weight: normal!important;
+		background-repeat: no-repeat!important;
+
+		top: 0;
+		}
+
+
+		.rounded-terminals > .ie-bg [class|="corner"]:before,
+		.rounded-terminals > .ie-bg [class|="corner"]:after {
+			font-family: 'iconfont'!important;
+			content: '\e661';
+		}
+
+		.rounded-terminals > .ie-bg [class|="corner"]:before,
+		.rounded-terminals > .ie-bg [class|="corner"]:after {
+			display: block;
+			position: absolute;
+			white-space: nowrap;
+			overflow: hidden;
+
+			padding: 0;
+			margin: 0;
+			width:  100px;
+			height: 100%;
+
+			background-repeat: no-repeat;
+			background-color: none!important;
+		}
+		.rounded-terminals > .ie-bg [class|="corner"]:before {
+			top: 0;
+		}
+		.rounded-terminals > .ie-bg [class|="corner"]:after {
+			top: 1px;
+		}
+		.rounded-terminals > .ie-bg .corner-1:before {
+			left: 0;
+		}
+		.rounded-terminals > .ie-bg .corner-1:after {
+			left: 1px;
+		}
+		.rounded-terminals > .ie-bg .corner-2:before {
+			text-align: right;
+			direction: rtl;
+			right: 0;
+		}
+		.rounded-terminals > .ie-bg .corner-2:after {
+			direction: rtl;
+			text-align: right;
+			right: 1px;
+		}
+
+
+	.rounded-terminals > .ie-bg [class|="corner"]:before {
+		/* the original design was 80px*80px, which makes the radii being 40px */
+		font-size: 80px;
+		line-height: 73.5px;
+		}
+		.rounded-terminals > .ie-bg [class|="corner"]:after {
+			font-size: 76.1px;
+			line-height: 69.1px;
+		}
+
+
+
+
+button, [role="button"] {
+	overflow: visible;
+}
+button > .label, [role="button"] > .label {
+	position: relative;
+	width: 100%;
+	display: block;
+	border: none!important;
+	padding: 0;
+	margin: 0;
+	min-height: inherit;
+	z-index: 1;
+}
+
+
+
+
+.ie-borders {
+	color: black;
+	border-color: black;
+}
+.ie-bg {
+	color: white;
+	background-color: transparent; /*  */
+}
+.bg-transparent > .ie-bg {
+	background-color: transparent;
+}
+
+
+
+
+.deco-input {
+	margin-left: -0.87px;
+	margin-top: -0.87px;
+}
+
+button.button-x {
+	}
+
+	button.button-x:before {
+		content: none; /* ie8 has :before Alpha(opacity) bug */
+	}
+
+	button.button-x:after {
+		position: static;
+	}
+
+	button.button-x:hover {
+		-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(startColorstr=#33FFFFFF, endColorstr=#33FFFFFF)";
+			filter:  progid:DXImageTransform.Microsoft.Gradient(startColorstr=#33FFFFFF, endColorstr=#33FFFFFF);
+	}
+
+
+.corner-marker {
+	min-width: 0;
+	width: auto;
+	margin-left: 0.75em; /* make some root for left semicircle */
+	padding-left: 0;
+	padding-right: 0;
+	}
+	.corner-marker .value {
+		position: relative; /* for being on top of parentNode's :before :after psuedo elements; */
+		padding-left: 0;
+		padding-right: 0;
+		margin-left: -0.4em;
+		margin-right: -0.4em;
+	}
+	.corner-marker:after,
+	.corner-marker:before {
+		content: '\e62f';
+		font-family: 'iconfont'!important;
+		position: absolute;
+		top: 0;
+		font-size: 15px;
+		width: 0.55em;
+		height: 1em;
+		white-space: nowrap;
+		padding: 0;
+		text-indent: 0;
+		border: 0;
+		margin: 0;
+		overflow: hidden;
+		font-style: normal!important;
+		font-weight: normal!important;
+		text-indent: -0.5em;
+	}
+	.corner-marker:before {
+		right: 100%;
+		direction: rtl;
+		text-align: right;
+	}
+	.corner-marker:after {
+		left: 100%;
+		text-align: left;
+	}
+	sup.corner-marker { /* ie8 bug */
+		font-size: 0.9em;
+		height: 15px;
+		line-height: 15px;
+		}
+		sup.corner-marker:after,
+		sup.corner-marker:before {
+			font-size: 18px;
+			line-height: 0.75;
+		}
+
+
+.floating-layer-set {
+	}
+
+	.floating-layer-set .locator .ie-hover-patch { /* for stable hover */
+		display: block;
+
+		/* background-color: transprant wont bring us a stable hover interaction */
+		background-color: black;
+		filter: alpha(opacity=0);
+	}
+
+	.floating-layer-set .floating-layer.has-border-triangle > .ie-border-triangle-shadow-matte,
+	.floating-layer-set .floating-layer > .ie-shadow {
+		display: block;
+	}
+
+	.floating-layer-set.floating-info-set .floating-layer.has-border-triangle > .ie-border-triangle-shadow-matte,
+	.floating-layer-set.floating-info-set .floating-layer.has-border-triangle > .ie-border-triangle {
+		left: 9px;
+		margin-left: 0;
+	}
+
+	.floating-layer-set .floating-layer > .ie-shadow .ie-shadow-matte {
+		margin: -6px 3px 3px -6px;
+		-ms-filter: "\
+			progid:DXImageTransform.Microsoft.Alpha(opacity=25)\
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=4)\
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=4)\
+		";
+		filter: 
+			progid:DXImageTransform.Microsoft.Alpha(opacity=25)
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=4)
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=4)
+		;
+	}
+	.floating-layer-set .floating-layer.has-border-triangle > .ie-border-triangle-shadow-matte {
+		left: 50%;
+		top: 0;
+		margin: -21px 0 0 -20px;
+		-ms-filter: "\
+			progid:DXImageTransform.Microsoft.Matrix(\
+				M11=0.7071067811865474,\
+				M12=-0.7071067811865477\,\
+				M21=0.7071067811865477,\
+				M22=0.7071067811865474,\
+				SizingMethod='auto expand'\
+			)\
+			progid:DXImageTransform.Microsoft.Alpha(opacity=25)\
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=4)\
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=4)\
+		";
+		filter:
+			progid:DXImageTransform.Microsoft.Matrix(
+				M11=0.7071067811865474,
+				M12=-0.7071067811865477,
+				M21=0.7071067811865477,
+				M22=0.7071067811865474,
+				SizingMethod='auto expand'
+			)
+			progid:DXImageTransform.Microsoft.Alpha(opacity=25)
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=4)
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=4)
+		;
+	}
+
+
+.popup-layers-back-plate {
+	background-color: black;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=80)";
+		filter:  progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+	zoom: 1;
+	}
+
+	.popup-window > .ie-shadow {
+		display: block;
+	}
+
+	.popup-window > .ie-shadow .ie-shadow-matte {
+		-ms-filter: "\
+			progid:DXImageTransform.Microsoft.Alpha(opacity=95)\
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=8)\
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=12)\
+		";
+		filter:
+			progid:DXImageTransform.Microsoft.Alpha(opacity=95)
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=8)
+			progid:DXImageTransform.Microsoft.Blur(PixelRadius=12)
+		;
+		left: -24px;
+		top: -24px;
+		right: 14px;
+		bottom: 14px;
+	}
+
+
+.pagination [role="button"],
+.pagination button {
+	position: relative; /* for ie8 borders */
+}
+
+
+#app-chief-nav .menu.level-2 > .ie-shadow .ie-shadow-matte,
+#app-chief-nav .menu.level-1 > .menu-item > .deco .ie-shadow-matte,
+
+#my-assets .menu.level-2 > .ie-shadow .ie-shadow-matte,
+#my-assets .menu.level-1 > .menu-item > .deco .ie-shadow-matte {
+	-ms-filter: "\
+		progid:DXImageTransform.Microsoft.Alpha(opacity=15)\
+		progid:DXImageTransform.Microsoft.Blur(PixelRadius=6)\
+	";
+	filter: 
+		progid:DXImageTransform.Microsoft.Alpha(opacity=15)
+		progid:DXImageTransform.Microsoft.Blur(PixelRadius=6)
+	;
+
+	left: -7px;
+	top: -7px;
+	right: 5px;
+	bottom: 5px;
+}
