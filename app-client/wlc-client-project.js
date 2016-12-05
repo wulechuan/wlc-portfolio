@@ -19,7 +19,7 @@
 
 
 module.exports = {
-	name: '泰金所\’16-11',
+	name: '乐\’16-11',
 	appFolderStructure: 'tranditional',
 	folderOf: {
 		srcRoot:                  'source',
