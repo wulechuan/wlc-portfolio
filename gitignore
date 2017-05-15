@@ -1,0 +1,12 @@
+.svn
+node_modules
+.sass-cache
+temp/
+jsdoc/
+**/*wp-content/plugins
+**/*/wp-admin
+**/*/sitemaps
+**/*/source/wp-includes
+**/*/source/configs
+**/*/themes/twentythirteen
+**/*/themes/twentytwelve
