@@ -5,11 +5,28 @@
 const folderNameClientAppRoot = 'app-client';
 const fileNameWlcClientProjectConfigurationJS = 'wlc-client-project-configuration';
 
-// import modules
+
+// options
+const processArguments = require('minimist')(process.argv.slice(2));
+const isToBuildForRelease =
+	processArguments.release ||
+	processArguments.production ||
+	processArguments.ship ||
+	processArguments.final
+	;
+
+const isToDevelopWithWatching = !isToBuildForRelease;
+const gulpRunningMode = isToBuildForRelease ? 'release' : 'dev';
+
+
+
+
+
+
+
+
+// modules: core utilities
 const gulp = require('gulp');
-
-
-// utilities
 // const fileSystem = require('fs');
 const pathTool = require('path');
 const getJoinedPathFrom = pathTool.join;
@@ -19,7 +36,7 @@ const pump = require('pump');
 const runTasksInSequnce = require('gulp-sequence');
 
 
-// file content modifiers
+// modules: file content modifiers
 const removeLogging = require('gulp-remove-logging');
 const concateFileGroups = require('gulp-group-concat');
 const minifyCss = require('gulp-csso');
@@ -28,6 +45,7 @@ const sourcemaps = require('gulp-sourcemaps');
 
 
 
+// fetch configuration
 const projectConfiguration = require(pathTool.join(__dirname, folderNameClientAppRoot, fileNameWlcClientProjectConfigurationJS));
 
 
@@ -63,37 +81,7 @@ const cheersChalk = chalk.bgGreen.black;
 
 
 
-
-// options and configurations
-const processArguments = require('minimist')(process.argv.slice(2));
-const isToBuildForRelease =
-	processArguments.release ||
-	processArguments.production ||
-	processArguments.ship ||
-	processArguments.final
-	;
-
-const isToDevelopWithWatching = !isToBuildForRelease;
-
-const gulpRunningMode = isToBuildForRelease ? 'release' : 'dev';
-
-// colorfulInfo('config',formatJSON(projectConfiguration));
 colorfulInfo('===:::+++',formatJSON(projectConfiguration.genOptionsForGulpHTMLMin(gulpRunningMode)));
-
-
-
-// dev environment configurations
-let shouldMinifyCssFiles = true;
-let shouldMinifyAllJsFiles = true;
-let shouldMinifyJsFilesForInjections = true; // Remember that injected js codes have *NO* sourceMaps.
-let shouldStripConsoleLoggingsFromJsFiles = false;
-let shouldStripConsoleLoggingsFromJsFilesForInjections = false;
-
-let shouldGenerateMapFilesForJs = true;
-let shouldGenerateMapFilesForCss = true;
-
-
-
 
 
 
