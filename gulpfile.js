@@ -6,18 +6,6 @@ const folderNameClientAppRoot = 'app-client';
 const fileNameWlcClientProjectConfigurationJS = 'wlc-client-project-configuration';
 
 
-// options
-const processArguments = require('minimist')(process.argv.slice(2));
-const isToBuildForRelease =
-	processArguments.release ||
-	processArguments.production ||
-	processArguments.ship ||
-	processArguments.final
-	;
-
-const isToDevelopWithWatching = !isToBuildForRelease;
-const gulpRunningMode = isToBuildForRelease ? 'release' : 'dev';
-
 
 
 
@@ -44,10 +32,8 @@ const uglifyJs = require('gulp-uglify');
 const sourcemaps = require('gulp-sourcemaps');
 
 
-
 // fetch configuration
 const projectConfiguration = require(pathTool.join(__dirname, folderNameClientAppRoot, fileNameWlcClientProjectConfigurationJS));
-
 
 
 // printing colorful logs in CLI
@@ -81,7 +67,13 @@ const cheersChalk = chalk.bgGreen.black;
 
 
 
-colorfulInfo('===:::+++',formatJSON(projectConfiguration.genOptionsForGulpHTMLMin(gulpRunningMode)));
+const processArguments = require('minimist')(process.argv.slice(2));
+const isToBuildForRelease = projectConfiguration.isRunningInReleasingMode(processArguments);
+const isToDevelopWithWatching = !isToBuildForRelease;
+const gulpRunningMode = isToBuildForRelease ? 'release' : 'dev';
+
+colorfulWarn('isToBuildForRelease', isToBuildForRelease);
+colorfulInfo(formatJSON(projectConfiguration.genOptionsForGulpHTMLMin(gulpRunningMode)));
 
 
 
@@ -150,30 +142,6 @@ const settingsForRemovingLoggingForJsFiles = {
 	]
 };
 
-let minificationOptionsForJsFilesForInjections = {
-	mangle: false, // preserve human readable names for variables and functions
-
-	output: { // http://lisperator.net/uglifyjs/codegen
-		// DO NOT use "ie_proof" even if its mentioned in the doc in the uri above
-		// ie_proof: false,  // output IE-safe code?
-
-		beautify: true, // beautify output?
-		comments: false, // output comments?
-	},
-
-	compress: { // http://lisperator.net/uglifyjs/compress
-		sequences: false,  // concate multiple statements into single one, via the comma separators.
-		hoist_funs: false, // move all function definitions to the very beginning of a closure
-	}
-};
-
-
-
-
-
-
-
-
 
 
 
@@ -187,9 +155,7 @@ let minificationOptionsForJsFilesForInjections = {
 shouldGenerateMapFilesForJs = shouldGenerateMapFilesForJs && (shouldMinifyAllJsFiles || shouldStripConsoleLoggingsFromJsFiles);
 shouldGenerateMapFilesForCss = shouldGenerateMapFilesForCss && shouldMinifyCssFiles;
 
-if (shouldMinifyJsFilesForInjections) {
-	minificationOptionsForJsFilesForInjections = null;
-}
+
 
 // build up fullpaths and globs
 const pathForCssSourceFiles = getJoinedPathFrom(pathForClientAppRoot, folderOfCssFiles, folderOfCssSourceFiles);
@@ -290,15 +256,6 @@ groupConcatSettingsForAppJs['functions.min.js'] = [
 ];
 
 
-
-
-
-
-colorfulLog(
-	'Minification settings for Javascript to inject:',
-	formatJSON(minificationOptionsForJsFilesForInjections),
-	'\n'
-);
 
 
 (function setupAllCSSTasks() {
@@ -449,27 +406,6 @@ colorfulLog(
 
 		pump(tasksToPump, onThisTaskDone);
 	});
-
-	gulp.task('javascript: build files for injections', (onThisTaskDone) => {
-		let tasksToPump = [];
-
-		tasksToPump.push(gulp.src(globsJsSourceFilesForInjections));
-
-		if (shouldStripConsoleLoggingsFromJsFilesForInjections) {
-			tasksToPump.push(removeLogging(settingsForRemovingLoggingForJsFiles));
-		}
-
-		if (shouldMinifyJsFilesForInjections) {
-			tasksToPump.push(uglifyJs(minificationOptionsForJsFilesForInjections));
-		}
-
-		tasksToPump.push(renameFiles({suffix: '.min'}));
-		tasksToPump.push(gulp.dest(pathForJsOutputFilesForInjections));
-
-		pump(tasksToPump, onThisTaskDone);
-	});
-
-
 
 
 	gulp.task('javascript: remove old third-party files', () => {
