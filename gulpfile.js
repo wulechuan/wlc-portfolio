@@ -64,9 +64,6 @@ const cheersChalk = chalk.bgGreen.black;
 
 
 
-
-colorfulInfo('===:::+++',formatJSON(projectConfiguration));
-
 // options and configurations
 const processArguments = require('minimist')(process.argv.slice(2));
 const isToBuildForRelease =
@@ -77,6 +74,11 @@ const isToBuildForRelease =
 	;
 
 const isToDevelopWithWatching = !isToBuildForRelease;
+
+const gulpRunningMode = isToBuildForRelease ? 'release' : 'dev';
+
+// colorfulInfo('config',formatJSON(projectConfiguration));
+colorfulInfo('===:::+++',formatJSON(projectConfiguration.genOptionsForGulpHTMLMin(gulpRunningMode)));
 
 
 
