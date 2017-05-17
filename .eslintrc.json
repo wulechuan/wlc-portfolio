@@ -1,5 +1,5 @@
 // http://eslint.org/docs/user-guide/configuring
-module.exports = {
+{
     "env": {
         "browser": true,
         "commonjs": true,
@@ -33,6 +33,6 @@ module.exports = {
             "error",
             "always"
         ],
-        "no-console": "off",
+        "no-console": "off"
     }
-};
+}
