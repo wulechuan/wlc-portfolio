@@ -9,6 +9,7 @@
   "author": "wulechuan@live.com",
   "license": "WTFPL",
   "devDependencies": {
+    "@wulechuan/colorful-log": "^0.0.3",
     "@wulechuan/group-files-via-folder-names": "^0.0.4",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
@@ -22,5 +23,6 @@
     "gulp-uglify": "^2.1.0",
     "path": "^0.12.7",
     "pump": "^1.0.2"
-  }
+  },
+  "dependencies": {}
 }
