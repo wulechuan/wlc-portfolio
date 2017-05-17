@@ -10,16 +10,17 @@
   "license": "WTFPL",
   "devDependencies": {
     "@wulechuan/group-files-via-folder-names": "^0.0.4",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-cssmin": "^0.1.7",
-    "gulp-filter": "^4.0.0",
+    "gulp-csso": "^2.0.0",
     "gulp-group-concat": "^1.1.5",
-    "gulp-htmlmin": "^2.0.0",
     "gulp-inject": "^4.1.0",
+    "gulp-remove-logging": "^1.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-sequence": "^0.4.6",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.3",
-    "path": "^0.12.7"
+    "gulp-uglify": "^2.1.0",
+    "path": "^0.12.7",
+    "pump": "^1.0.2"
   }
 }
