@@ -1,5 +1,5 @@
 node_modules/*
 app-client/_temp
-app-client/build-*
+app-client/build*
 app-client/*cache
 npm-debug.log

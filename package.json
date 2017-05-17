@@ -1,40 +1,25 @@
 {
-  "name": "wulechuan-warm-up",
+  "name": "wulechuan's",
   "version": "1.0.0",
-  "description": "Learning stuffs",
+  "description": "Portofolio",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "wulechuan@live.com",
-  "license": "ISC",
+  "license": "WTFPL",
   "devDependencies": {
-    "eslint": "^3.6.1",
-    "eslint-config-standard": "^6.0.1",
-    "eslint-plugin-promise": "^2.0.1",
-    "eslint-plugin-react": "^6.3.0",
-    "eslint-plugin-standard": "^2.0.0",
-    "graceful-fs": "^4.1.4",
+    "@wulechuan/group-files-via-folder-names": "^0.0.4",
     "gulp": "^3.9.1",
-    "gulp-batch": "^1.0.5",
-    "gulp-change": "^1.0.0",
-    "gulp-clean": "^0.3.2",
-    "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
-    "gulp-eslint": "^2.0.0",
     "gulp-filter": "^4.0.0",
     "gulp-group-concat": "^1.1.5",
     "gulp-htmlmin": "^2.0.0",
     "gulp-inject": "^4.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sequence": "^0.4.6",
-    "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "path": "^0.12.7"
-  },
-  "dependencies": {
-    "chalk": "^1.1.3",
-    "express": "^4.14.0"
   }
 }
