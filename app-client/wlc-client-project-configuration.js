@@ -1,3 +1,6 @@
+/**
+ * configuration object
+ */
 var configuration = {
 	projectName: 'wlc-2017-05',
 	projectCaption: '吴乐川资料\’17-05',
@@ -24,12 +27,15 @@ var configuration = {
 				dev: true,
 				release: true
 			},
-			shouldGenerateSoureMapsIfMinified: {
+			shouldGenerateSoureMaps: {
 				dev: true,
 				release: false
 			},
-			globs: {
-
+			inputGlobs: {
+				rootPath: 'common/styles'
+			},
+			outputPaths: {
+				rootPath: 'css'
 			},
 			preprocessing: {
 				language: 'sass' // 'less', 'stylus', 'none'
@@ -41,7 +47,7 @@ var configuration = {
 				dev: true,
 				release: true
 			},
-			shouldGenerateSoureMapsIfMinified: {
+			shouldGenerateSoureMaps: {
 				dev: true,
 				release: false
 			},
@@ -49,9 +55,13 @@ var configuration = {
 				dev: false,
 				release: true
 			},
-			globs: {
-
+			inputGlobs: {
+				rootPath: 'common/scripts'
 			},
+			outputPaths: {
+				rootPath: 'js'
+			},
+
 			'gulp-uglify-options': {
 				default: null,
 				jsSnippetsInHTML: {
@@ -88,6 +98,12 @@ var configuration = {
 				removeEmptyAttributes: true,
 				removeScriptTypeAttributes: true,
 				removeStyleLinkTypeAttributes: true
+			},
+			inputGlobs: {
+				rootPath: ''
+			},
+			outputPaths: {
+				// rootPath: 'pages'
 			}
 		}
 	}

@@ -1,16 +1,6 @@
-// 文件夹结构：
-//
-// {project-root}
-//   └─ app-client
-const folderNameClientAppRoot = 'app-client';
-const fileNameWlcClientProjectConfigurationJS = 'wlc-client-project-configuration';
-
-
-
-
-
-
-
+// fetch configuration
+const pathForClientAppRoot = './app-client/';
+const projectConfiguration = require('./app-client/wlc-client-project-configuration');
 
 
 // modules: core utilities
@@ -22,6 +12,7 @@ const renameFiles = require('gulp-rename');
 const deleteFiles = require('del');
 const pump = require('pump');
 const runTasksInSequnce = require('gulp-sequence');
+const evaluateGroupConcateOptionsViaFoldersAsAModule = require('@wulechuan/group-files-via-folder-names');
 
 
 // modules: file content modifiers
@@ -32,16 +23,13 @@ const uglifyJs = require('gulp-uglify');
 const sourcemaps = require('gulp-sourcemaps');
 
 
-// fetch configuration
-const projectConfiguration = require(pathTool.join(__dirname, folderNameClientAppRoot, fileNameWlcClientProjectConfigurationJS));
-
 
 // printing colorful logs in CLI
 const logger = require('@wulechuan/colorful-log').createColorfulLogger(global.console, {
-    prefix: projectConfiguration.projectCaption,
-    shouldOverrideRawMethods: true, // console.error === logger.error, console.log === logger.log, so on so forth
-    shouldPrefixPlainLoggingsIfNotOverrided: true,
-    shouldNotShowTimeStamp: true
+	prefix: projectConfiguration.projectCaption,
+	shouldOverrideRawMethods: true, // console.error === logger.error, console.log === logger.log, so on so forth
+	shouldPrefixPlainLoggingsIfNotOverrided: true,
+	shouldNotShowTimeStamp: true
 });
 
 const chalk = logger.chalk;
@@ -62,8 +50,6 @@ const warnEMChalk = logger.warnEMChalk;
 const errorChalk = logger.errorChalk;
 const errorEMChalk = logger.errorEMChalk;
 const cheersChalk = chalk.bgGreen.black;
-
-
 
 
 
@@ -151,80 +137,69 @@ const settingsForRemovingLoggingForJsFiles = {
 
 
 // initialize some variable
-// shouldStripConsoleLoggingsFromJsFiles = shouldStripConsoleLoggingsFromJsFiles && shouldMinifyJsFiles;
-shouldGenerateMapFilesForJs = shouldGenerateMapFilesForJs && (shouldMinifyAllJsFiles || shouldStripConsoleLoggingsFromJsFiles);
-shouldGenerateMapFilesForCss = shouldGenerateMapFilesForCss && shouldMinifyCssFiles;
+const shouldGenerateMapFilesForJs = (function (config) {
+	const jsConfig = config.assets && config.assets.js;
+	if (!jsConfig) return false;
+
+	return (jsConfig.shouldGenerateSoureMaps &&
+		(jsConfig.shouldMinify || jsConfig.shouldStripConsoleLoggings)
+	);
+})(projectConfiguration);
+
+const shouldGenerateMapFilesForCss = (function (config) {
+	const cssConfig = config.assets && config.assets.css;
+	if (!cssConfig) return false;
+
+	return (cssConfig.shouldGenerateSoureMaps &&
+		(cssConfig.shouldMinify || cssConfig.shouldStripConsoleLoggings)
+	);
+})(projectConfiguration);
+
+
 
 
 
 // build up fullpaths and globs
-const pathForCssSourceFiles = getJoinedPathFrom(pathForClientAppRoot, folderOfCssFiles, folderOfCssSourceFiles);
-const pathForCssOutputFiles = getJoinedPathFrom(pathForClientAppRoot, folderOfCssFiles, folderOfCssOutputFiles);
-const pathForJsSourceFilesToMerge = getJoinedPathFrom(pathForClientAppRoot, folderOfJsFiles, folderOfJsSourceFilesToMerge);
-const pathForJsOutputFilesToMerge = getJoinedPathFrom(pathForClientAppRoot, folderOfJsFiles, folderOfJsOutputFilesToMerge);
-const pathForJsSourceAppFilesToProcessEachAlone = getJoinedPathFrom(pathForClientAppRoot, folderOfJsFiles, folderOfJsSourceAppFilesToProcessEachAlone);
-const pathForJsOutputAppFilesToProcessEachAlone = getJoinedPathFrom(pathForClientAppRoot, folderOfJsFiles, folderOfJsOutputAppFilesToProcessEachAlone);
-const pathForJsSourceLibFilesToProcessEachAlone = getJoinedPathFrom(pathForClientAppRoot, folderOfJsFiles, folderOfJsSourceLibFilesToProcessEachAlone);
-const pathForJsOutputLibFilesToProcessEachAlone = getJoinedPathFrom(pathForClientAppRoot, folderOfJsFiles, folderOfJsOutputLibFilesToProcessEachAlone);
-const pathForJsSourceFilesForInjections = getJoinedPathFrom(pathForClientAppRoot, folderOfJsFiles, folderOfJsSourceFilesForInjections);
-const pathForJsOutputFilesForInjections = getJoinedPathFrom(pathForClientAppRoot, folderOfJsFiles, folderOfJsOutputFilesForInjections);
+colorfulInfo(
+	logLine,
+	'Preparing paths and globs...',
+	logLine
+);
+
+const assetsConfig = projectConfiguration.assets;
+
+const pathForSourceRoot = getJoinedPathFrom(__dirname, pathForClientAppRoot, projectConfiguration.folderOf.source);
+
+const folderOfCssSourceFiles = assetsConfig.css.inputGlobs.rootPath;
+const folderOfCssOutputFiles = assetsConfig.css.outputPaths.rootPath;
+
+const folderOfJsSourceFiles = assetsConfig.js.inputGlobs.rootPath;
+const folderOfJsOutputFiles = assetsConfig.js.outputPaths.rootPath;
+
+const pathForCssSourceFiles = getJoinedPathFrom(pathForSourceRoot, folderOfCssSourceFiles);
+const pathForCssOutputFiles = getJoinedPathFrom(pathForSourceRoot, folderOfCssOutputFiles);
+const pathForJsSourceFiles = getJoinedPathFrom(pathForSourceRoot, folderOfJsSourceFiles);
+const pathForJsOutputFiles = getJoinedPathFrom(pathForSourceRoot, folderOfJsOutputFiles);
 
 const globsCssSourceFiles = [
 	getJoinedPathFrom(pathForCssSourceFiles, '**/*.css'),
 	'!' + getJoinedPathFrom(pathForCssOutputFiles, '**/*') // just in case the output folder is a sub folder of the source folder
 ];
 
-const globsJsSourceFilesToMerge = [
-	getJoinedPathFrom(pathForJsSourceAppFilesToProcessEachAlone, '**/functions*.js'),
-	getJoinedPathFrom(pathForJsSourceFilesToMerge, '**/*.js'),
-];
-
-const globsJsSourceAppFilesToProcessEachAlone = [
-	getJoinedPathFrom(pathForJsSourceAppFilesToProcessEachAlone, '**/*.js'),
-	'!'+getJoinedPathFrom(pathForJsSourceAppFilesToProcessEachAlone, '**/functions-extra.js')
-];
-const globsJsSourceLibFilesToProcessEachAlone = [
-	getJoinedPathFrom(pathForJsSourceLibFilesToProcessEachAlone, 'to-minify/**/*.js')
-];
-const globsJsSourceLibFilesToProcessEachAloneAsIs = [
-	getJoinedPathFrom(pathForJsSourceLibFilesToProcessEachAlone, 'as-is/**/*.js')
-];
-
-const globsJsSourceFilesForInjections = [
-	getJoinedPathFrom(pathForJsSourceFilesForInjections, '**/*.js'),
+const globsJsSourceFiles = [
+	getJoinedPathFrom(pathForJsSourceFiles, '**/*.js'),
+	'!' + getJoinedPathFrom(pathForJsOutputFiles, '**/*') // just in case the output folder is a sub folder of the source folder
 ];
 
 const globsToWatch = []
 	.concat(globsCssSourceFiles)
-	.concat(globsJsSourceAppFilesToProcessEachAlone)
-	.concat(globsJsSourceLibFilesToProcessEachAlone)
-	.concat(globsJsSourceFilesToMerge)
-	.concat(globsJsSourceFilesForInjections);
+	.concat(globsJsSourceFiles)
+	;
 
 
 
-
-
-
-
-
-
-colorfulInfo(
-	logLine,
-	'Preparing globs and tasks...',
-	logLine
-);
 
 // evaluate group-concat settings via building options
-groupConcatBuildingOptionsForThirdPartyCss.searchingBases = 
-	groupConcatBuildingOptionsForThirdPartyCss.searchingBases.map((glob) => {
-		return getJoinedPathFrom(pathForCssSourceFiles, glob) + '/';
-	});
-const groupConcatSettingsForThirdPartyCss = evaluateGroupConcateOptionsViaFoldersAsAModule(
-	groupConcatBuildingOptionsForThirdPartyCss
-);
-
-
 groupConcatBuildingOptionsForAppCss.searchingBases =
 	groupConcatBuildingOptionsForAppCss.searchingBases.map((glob) => {
 		return getJoinedPathFrom(pathForCssSourceFiles, glob) + '/';
@@ -258,6 +233,13 @@ groupConcatSettingsForAppJs['functions.min.js'] = [
 
 
 
+
+colorfulInfo(
+	logLine,
+	'Preparing tasks...',
+	logLine
+);
+
 (function setupAllCSSTasks() {
 	// colorfulLog(
 	//     'Css globs of app:',
@@ -266,7 +248,7 @@ groupConcatSettingsForAppJs['functions.min.js'] = [
 	// );
 
 	gulp.task('styles: remove old built files', () => {
-		return del([
+		return deleteFiles([
 			getJoinedPathFrom(pathForCssOutputFiles, '**/*')
 		]);
 	});
@@ -338,7 +320,7 @@ groupConcatSettingsForAppJs['functions.min.js'] = [
 
 (function setupAllJSTasks() {
 	gulp.task('javascript: remove old built files', () => {
-		return del([
+		return deleteFiles([
 			getJoinedPathFrom(pathForJsOutputFilesToMerge, '**/*'),
 			getJoinedPathFrom(pathForJsOutputFilesForInjections, '**/*')
 		]);
@@ -409,7 +391,7 @@ groupConcatSettingsForAppJs['functions.min.js'] = [
 
 
 	gulp.task('javascript: remove old third-party files', () => {
-		return del([
+		return deleteFiles([
 			getJoinedPathFrom(pathForJsOutputLibFilesToProcessEachAlone, '**/*')
 		]);
 	});
