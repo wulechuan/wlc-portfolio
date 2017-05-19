@@ -1,6 +1,7 @@
 // fetch configuration
 const pathForClientAppRoot = './app-client/';
 const projectConfiguration = require('./app-client/wlc-client-project-configuration');
+const wlcGulpTasks = require('./app-client/wlc-gulp-tasks');
 
 
 // modules: core utilities
@@ -13,6 +14,7 @@ const deleteFiles = require('del');
 const pump = require('pump');
 const runTasksInSequnce = require('gulp-sequence');
 const evaluateGroupConcateOptionsViaFoldersAsAModule = require('@wulechuan/group-files-via-folder-names');
+const naturalSort = require('gulp-natural-sort');
 
 
 // modules: file content modifiers
@@ -64,18 +66,6 @@ colorfulInfo(formatJSON(projectConfiguration.genOptionsForGulpHTMLMin(gulpRunnin
 
 
 
-const groupConcatBuildingOptionsForThirdPartyCss = {
-	taskNameForLogging: 'CSS: 3rd-Party',
-	searchingBases: [
-		'third-party',
-	],
-	fileMatchingPatterns: ['*.css'],
-	outputFileNameSuffix: '.min',
-	outputFileExtension: 'css',
-	// shouldNotAppendSuffix: false,
-	shouldEvalutateRelativePathToCWD: true
-};
-
 const groupConcatBuildingOptionsForAppCss = {
 	taskNameForLogging: 'CSS: app',
 	searchingBases: [
@@ -88,16 +78,6 @@ const groupConcatBuildingOptionsForAppCss = {
 	shouldEvalutateRelativePathToCWD: true
 };
 
-const groupConcatBuildingOptionsForThirdPartyJs = {
-	taskNameForLogging: 'Javascript: 3rd-Party',
-	searchingBases: [
-		'merge-into=third-party-*/',
-	],
-	fileMatchingPatterns: ['*.js'/*, '*.ts'*/],
-	outputFileNameSuffix: '.min',
-	outputFileExtension: 'js',
-	shouldEvalutateRelativePathToCWD: true,
-};
 
 const groupConcatBuildingOptionsForAppJs = {
 	taskNameForLogging: 'Javascript: app',
@@ -137,6 +117,11 @@ const settingsForRemovingLoggingForJsFiles = {
 
 
 // initialize some variable
+const shouldMinifyCssFiles = projectConfiguration.assets.css.shouldMinify;
+const shouldMinifyJsFiles = projectConfiguration.assets.js.shouldMinify;
+const shouldMinifyHTMLFiles = projectConfiguration.assets.html.shouldMinify;
+const shouldStripConsoleLoggingsFromJsFiles = projectConfiguration.assets.js.shouldStripConsoleLoggings;
+
 const shouldGenerateMapFilesForJs = (function (config) {
 	const jsConfig = config.assets && config.assets.js;
 	if (!jsConfig) return false;
@@ -169,6 +154,7 @@ colorfulInfo(
 const assetsConfig = projectConfiguration.assets;
 
 const pathForSourceRoot = getJoinedPathFrom(__dirname, pathForClientAppRoot, projectConfiguration.folderOf.source);
+const pathForOutputRoot = getJoinedPathFrom(__dirname, pathForClientAppRoot, projectConfiguration.folderOf.buildForDev);
 
 const folderOfCssSourceFiles = assetsConfig.css.inputGlobs.rootPath;
 const folderOfCssOutputFiles = assetsConfig.css.outputPaths.rootPath;
@@ -177,9 +163,9 @@ const folderOfJsSourceFiles = assetsConfig.js.inputGlobs.rootPath;
 const folderOfJsOutputFiles = assetsConfig.js.outputPaths.rootPath;
 
 const pathForCssSourceFiles = getJoinedPathFrom(pathForSourceRoot, folderOfCssSourceFiles);
-const pathForCssOutputFiles = getJoinedPathFrom(pathForSourceRoot, folderOfCssOutputFiles);
+const pathForCssOutputFiles = getJoinedPathFrom(pathForOutputRoot, folderOfCssOutputFiles);
 const pathForJsSourceFiles = getJoinedPathFrom(pathForSourceRoot, folderOfJsSourceFiles);
-const pathForJsOutputFiles = getJoinedPathFrom(pathForSourceRoot, folderOfJsOutputFiles);
+const pathForJsOutputFiles = getJoinedPathFrom(pathForOutputRoot, folderOfJsOutputFiles);
 
 const globsCssSourceFiles = [
 	getJoinedPathFrom(pathForCssSourceFiles, '**/*.css'),
@@ -209,26 +195,13 @@ const groupConcatSettingsForAppCss = evaluateGroupConcateOptionsViaFoldersAsAMod
 );
 
 
-groupConcatBuildingOptionsForThirdPartyJs.searchingBases =
-	groupConcatBuildingOptionsForThirdPartyJs.searchingBases.map((glob) => {
-		return getJoinedPathFrom(pathForJsSourceFilesToMerge, glob) + '/';
-	});
-const groupConcatSettingsForThirdPartyJs = evaluateGroupConcateOptionsViaFoldersAsAModule(
-	groupConcatBuildingOptionsForThirdPartyJs
-);
-
-
 groupConcatBuildingOptionsForAppJs.searchingBases =
 	groupConcatBuildingOptionsForAppJs.searchingBases.map((glob) => {
-		return getJoinedPathFrom(pathForJsSourceFilesToMerge, glob) + '/';
+		return getJoinedPathFrom(pathForJsSourceFiles, glob) + '/';
 	});
 const groupConcatSettingsForAppJs = evaluateGroupConcateOptionsViaFoldersAsAModule(
 	groupConcatBuildingOptionsForAppJs
 );
-groupConcatSettingsForAppJs['functions.min.js'] = [
-	getJoinedPathFrom(pathForJsSourceAppFilesToProcessEachAlone, '**/functions-core.js'),
-	getJoinedPathFrom(pathForJsSourceAppFilesToProcessEachAlone, '**/functions-extra.js')
-];
 
 
 
@@ -254,31 +227,32 @@ colorfulInfo(
 	});
 
 	gulp.task('styles: merge third party libs', (onThisTaskDone) => {
-		colorfulLog(
-			'Css globs of third-party libs:',
-			chalk.green(formatJSON(groupConcatSettingsForThirdPartyJs)),
-			'\n\n'
-			+errorEMChalk(
-				' WARNING! '
-				+'\n  Both human readable version and minified version '
-				+'\n  of a third-party plugin will be included if they both exist! '
-			)
-			+'\n\n'+
-			errorEMChalk(
-				' 注意！ '
-				+'\n  如果一个插件的《易读版》和《压缩版》均存在，'
-				+'\n  那么两个文件都会被包含进合并的css！ '
-			)+'\n\n'
-		);
+		onThisTaskDone();
+		// colorfulLog(
+		// 	'Css globs of third-party libs:',
+		// 	chalk.green(formatJSON(groupConcatSettingsForThirdPartyJs)),
+		// 	'\n\n'
+		// 	+errorEMChalk(
+		// 		' WARNING! '
+		// 		+'\n  Both human readable version and minified version '
+		// 		+'\n  of a third-party plugin will be included if they both exist! '
+		// 	)
+		// 	+'\n\n'+
+		// 	errorEMChalk(
+		// 		' 注意！ '
+		// 		+'\n  如果一个插件的《易读版》和《压缩版》均存在，'
+		// 		+'\n  那么两个文件都会被包含进合并的css！ '
+		// 	)+'\n\n'
+		// );
 
-		let tasksToPump = [];
+		// let tasksToPump = [];
 
-		tasksToPump.push(gulp.src(globsCssSourceFiles));
-		tasksToPump.push(naturalSort());
-		tasksToPump.push(concateFileGroups(groupConcatSettingsForThirdPartyCss));
-		tasksToPump.push(gulp.dest(pathForCssOutputFiles));
+		// tasksToPump.push(gulp.src(globsCssSourceFiles));
+		// tasksToPump.push(naturalSort());
+		// tasksToPump.push(concateFileGroups(groupConcatSettingsForThirdPartyCss));
+		// tasksToPump.push(gulp.dest(pathForCssOutputFiles));
 
-		pump(tasksToPump, onThisTaskDone);
+		// pump(tasksToPump, onThisTaskDone);
 	});
 
 	gulp.task('styles: build for app', (onThisTaskDone) => {
@@ -321,8 +295,7 @@ colorfulInfo(
 (function setupAllJSTasks() {
 	gulp.task('javascript: remove old built files', () => {
 		return deleteFiles([
-			getJoinedPathFrom(pathForJsOutputFilesToMerge, '**/*'),
-			getJoinedPathFrom(pathForJsOutputFilesForInjections, '**/*')
+			getJoinedPathFrom(pathForJsOutputFiles, '**/*')
 		]);
 	});
 
@@ -335,7 +308,7 @@ colorfulInfo(
 
 		let tasksToPump = [];
 
-		tasksToPump.push(gulp.src(globsJsSourceFilesToMerge));
+		tasksToPump.push(gulp.src(globsJsSourceFiles));
 		tasksToPump.push(naturalSort());
 
 		if (shouldGenerateMapFilesForJs) {
@@ -348,7 +321,7 @@ colorfulInfo(
 
 		tasksToPump.push(concateFileGroups(groupConcatSettingsForAppJs));
 
-		if (shouldMinifyAllJsFiles) {
+		if (shouldMinifyJsFiles) {
 			tasksToPump.push(uglifyJs());
 		}
 
@@ -356,106 +329,45 @@ colorfulInfo(
 			tasksToPump.push(sourcemaps.write('.'));
 		}
 
-		tasksToPump.push(gulp.dest(pathForJsOutputFilesToMerge));
+		tasksToPump.push(gulp.dest(pathForJsOutputFiles));
 
 		pump(tasksToPump, onThisTaskDone);
 	});
 
 	gulp.task('javascript: build files for app: those each alone', (onThisTaskDone) => {
-		let tasksToPump = [];
+		// let tasksToPump = [];
 
-		tasksToPump.push(gulp.src(globsJsSourceAppFilesToProcessEachAlone));
+		// tasksToPump.push(gulp.src(globsJsSourceFiles));
 
-		if (shouldGenerateMapFilesForJs) {
-			tasksToPump.push(sourcemaps.init());
-		}
+		// if (shouldGenerateMapFilesForJs) {
+		// 	tasksToPump.push(sourcemaps.init());
+		// }
 
-		if (shouldStripConsoleLoggingsFromJsFiles) {
-			tasksToPump.push(removeLogging(settingsForRemovingLoggingForJsFiles));
-		}
+		// if (shouldStripConsoleLoggingsFromJsFiles) {
+		// 	tasksToPump.push(removeLogging(settingsForRemovingLoggingForJsFiles));
+		// }
 
-		if (shouldMinifyAllJsFiles) {
-			tasksToPump.push(uglifyJs());
-		}
+		// if (shouldMinifyJsFiles) {
+		// 	tasksToPump.push(uglifyJs());
+		// }
 
-		tasksToPump.push(renameFiles({suffix: '.min'}));
+		// tasksToPump.push(renameFiles({suffix: '.min'}));
 
-		if (shouldGenerateMapFilesForJs) {
-			tasksToPump.push(sourcemaps.write('.'));
-		}
+		// if (shouldGenerateMapFilesForJs) {
+		// 	tasksToPump.push(sourcemaps.write('.'));
+		// }
 
-		tasksToPump.push(gulp.dest(pathForJsOutputAppFilesToProcessEachAlone));
+		// tasksToPump.push(gulp.dest(pathForJsOutputFiles));
 
-		pump(tasksToPump, onThisTaskDone);
+		// pump(tasksToPump, onThisTaskDone);
 	});
-
-
-	gulp.task('javascript: remove old third-party files', () => {
-		return deleteFiles([
-			getJoinedPathFrom(pathForJsOutputLibFilesToProcessEachAlone, '**/*')
-		]);
-	});
-
-	gulp.task('javascript: merge third party libs', (onThisTaskDone) => {
-
-		colorfulLog(
-			'Javascript globs of third-party libs:',
-			chalk.green(formatJSON(groupConcatSettingsForThirdPartyJs)),
-			'\n\n'
-			+errorEMChalk(
-				' WARNING! '
-				+'\n  Both human readable version and minified version '
-				+'\n  of a third-party plugin will be included if they both exist! '
-			)
-			+'\n\n'+
-			errorEMChalk(
-				' 注意！ '
-				+'\n  如果一个插件的《易读版》和《压缩版》均存在，'
-				+'\n  那么两个文件都会被包含进合并的js！ '
-			)+'\n\n'
-		);
-
-		let tasksToPump = [];
-
-		tasksToPump.push(gulp.src(globsJsSourceFilesToMerge));
-		tasksToPump.push(naturalSort());
-		tasksToPump.push(concateFileGroups(groupConcatSettingsForThirdPartyJs));
-		tasksToPump.push(gulp.dest(pathForJsOutputFilesToMerge));
-
-		pump(tasksToPump, onThisTaskDone);
-	});
-
-	gulp.task('javascript: copy some third-party files: each alone', (onThisTaskDone) => {
-		return gulp.src(globsJsSourceLibFilesToProcessEachAloneAsIs)
-			.pipe(renameFiles({suffix: '.min'}))
-			.pipe(gulp.dest(pathForJsOutputLibFilesToProcessEachAlone))
-			;
-	});
-
-	gulp.task('javascript: minify some third-party files: each alone', (onThisTaskDone) => {
-		colorfulWarn(
-			'globsJsSourceLibFilesToProcessEachAlone:',
-			formatJSON(globsJsSourceLibFilesToProcessEachAlone),
-			'\n\nto "'+pathForJsOutputLibFilesToProcessEachAlone+'"'
-		);
-
-		return gulp.src(globsJsSourceLibFilesToProcessEachAlone)
-			.pipe(uglifyJs())
-			.pipe(renameFiles({suffix: '.min'}))
-			.pipe(gulp.dest(pathForJsOutputLibFilesToProcessEachAlone))
-			;
-	});
-
-
-
 
 	gulp.task('javascript: all', (onThisTaskDone) => {
 		runTasksInSequnce(
 			'javascript: remove old built files',
 			[
 				'javascript: build files for app: those to merge',
-				'javascript: build files for app: those each alone',
-				'javascript: build files for injections'
+				'javascript: build files for app: those each alone'
 			]
 		)(onThisTaskDone);
 	});
@@ -465,6 +377,7 @@ colorfulInfo(
 
 
 gulp.task('app: build', [
+	'external: test task',
 	'styles: all',
 	'javascript: all'
 ]);
@@ -547,21 +460,14 @@ gulp.task('app: build', [
 		onThisTaskDone();
 	});
 
-	// gulp.task('watch');
-
-	// gulp.task('test');
-
-	// gulp.task('clean');
-
-
 	gulp.task('renew-lib', (onThisTaskDone) => {
 		runTasksInSequnce(
-			'javascript: remove old third-party files',
-			[
-				'javascript: merge third party libs',
-				'javascript: copy some third-party files: each alone',
-				'javascript: minify some third-party files: each alone'
-			]
+			// 'javascript: remove old third-party files',
+			// [
+			// 	'javascript: merge third party libs',
+			// 	'javascript: copy some third-party files: each alone',
+			// 	'javascript: minify some third-party files: each alone'
+			// ]
 		)(onThisTaskDone);
 	});
 

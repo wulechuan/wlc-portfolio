@@ -15,13 +15,14 @@
   dependencies:
     chalk "^1.1.3"
 
-"@wulechuan/group-files-via-folder-names@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@wulechuan/group-files-via-folder-names/-/group-files-via-folder-names-0.0.4.tgz#d6b91333d416af490784207fb5f06f0a5de0f34c"
+"@wulechuan/group-files-via-folder-names@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@wulechuan/group-files-via-folder-names/-/group-files-via-folder-names-0.0.5.tgz#2637e029211573303a8c56bd1b7ac1b7f1e884b6"
   dependencies:
     "@wulechuan/colorful-log" "^0.0.3"
     ansi-regex "^2.1.1"
     ansi-styles "^2.2.1"
+    array-flatten "^2.1.1"
     chalk "^1.1.3"
     escape-string-regexp "^1.0.5"
     has-ansi "^2.0.0"
@@ -78,6 +79,10 @@ arr-union@^3.1.0:
 array-differ@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/array-differ/-/array-differ-1.0.0.tgz#eff52e3758249d33be402b8bb8e564bb2b5d4031"
+
+array-flatten@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-2.1.1.tgz#426bb9da84090c1838d812c8150af20a8331e296"
 
 array-union@^1.0.1:
   version "1.0.2"
@@ -230,8 +235,8 @@ debug-fabulous@0.0.X:
     object-assign "4.1.0"
 
 debug@2.X:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.7.tgz#92bad1f6d05bbb6bba22cca88bcd0ec894c2861e"
+  version "2.6.8"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
     ms "2.0.0"
 
@@ -605,6 +610,13 @@ gulp-inject@^4.1.0:
     stream-to-array "^2.3.0"
     through2 "^2.0.1"
 
+gulp-natural-sort@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/gulp-natural-sort/-/gulp-natural-sort-0.1.1.tgz#b1123993b94f9213e28d0f4dfb0ab631e3b829c8"
+  dependencies:
+    natural-compare-lite "^1.0.0"
+    through "^2.3.4"
+
 gulp-remove-logging@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/gulp-remove-logging/-/gulp-remove-logging-1.2.0.tgz#fd16c19d368e243430126c619a393363e2cfe5a6"
@@ -741,7 +753,11 @@ inherits@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-1.0.2.tgz#ca4309dadee6b54cc0b8d247e8d7c7a0975bdc9b"
 
-inherits@2, inherits@2.0.1, inherits@^2.0.1, inherits@~2.0.1:
+inherits@2, inherits@^2.0.1, inherits@~2.0.1:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
+
+inherits@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
 
@@ -1146,6 +1162,10 @@ natives@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/natives/-/natives-1.1.0.tgz#e9ff841418a6b2ec7a495e939984f78f163e6e31"
 
+natural-compare-lite@^1.0.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/natural-compare-lite/-/natural-compare-lite-1.4.0.tgz#17b09581988979fddafe0201e931ba933c96cbb4"
+
 normalize-path@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
@@ -1171,13 +1191,13 @@ object.omit@^2.0.0:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
 
-once@^1.3.0, once@^1.4.0:
+once@^1.3.0, once@^1.3.1, once@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
   dependencies:
     wrappy "1"
 
-once@^1.3.1, once@~1.3.0:
+once@~1.3.0:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/once/-/once-1.3.3.tgz#b2e261557ce4c314ec8304f3fa82663e4297ca20"
   dependencies:
@@ -1545,7 +1565,7 @@ through2@^0.6.1, through2@^0.6.3:
     readable-stream ">=1.0.33-1 <1.1.0-0"
     xtend ">=4.0.0 <4.1.0-0"
 
-through@2, through@~2.3, through@~2.3.1:
+through@2, through@^2.3.4, through@~2.3, through@~2.3.1:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
