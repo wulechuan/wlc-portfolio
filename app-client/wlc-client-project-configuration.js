@@ -129,7 +129,7 @@ configuration.isRunningInReleasingMode = function(nodeProcessArguments) {
 	}
 
 	return false;
-}
+};
 
 configuration.genOptionsForGulpHTMLMin = function (gulpRunningMode) {
 	if (!(configuration.assets && configuration.assets.html)) {
