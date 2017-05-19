@@ -1,7 +1,9 @@
 // fetch configuration
 const pathForClientAppRoot = './app-client/';
-const projectConfiguration = require('./app-client/wlc-client-project-configuration');
-const wlcGulpTasks = require('./app-client/wlc-gulp-tasks');
+const wlcClientProjectTaskBuilder = require(
+	'./app-client/wlc-web-client-project-gulp-task-builder'
+	)();
+const projectConfiguration = wlcClientProjectTaskBuilder.projectConfiguration;
 
 
 // modules: core utilities
@@ -33,7 +35,6 @@ const logger = require('@wulechuan/colorful-log').createColorfulLogger(global.co
 	shouldPrefixPlainLoggingsIfNotOverrided: true,
 	shouldNotShowTimeStamp: true
 });
-
 const chalk = logger.chalk;
 
 const logLine = logger.logLines['='];

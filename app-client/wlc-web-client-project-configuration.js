@@ -3,7 +3,7 @@
  */
 var configuration = {
 	projectName: 'wlc-2017-05',
-	projectCaption: '吴乐川资料\’17-05',
+	projectCaption: '吴乐川资料 2017-05',
 
 	processArguments: {
 		thoseStandForRelease: [
