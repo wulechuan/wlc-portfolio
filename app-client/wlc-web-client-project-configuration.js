@@ -15,7 +15,7 @@ var configuration = {
 		]
 	},
 
-	folderOf: {
+	folderOfStages: {
 		source:                  'source',
 		buildForDev:             'build-dev',
 		buildForRelease:         'build-release'
@@ -31,7 +31,7 @@ var configuration = {
 				dev: true,
 				release: false
 			},
-			inputGlobs: {
+			sourceGlobs: {
 				rootPath: 'common/styles'
 			},
 			outputPaths: {
@@ -55,7 +55,7 @@ var configuration = {
 				dev: false,
 				release: true
 			},
-			inputGlobs: {
+			sourceGlobs: {
 				rootPath: 'common/scripts'
 			},
 			outputPaths: {
@@ -99,7 +99,7 @@ var configuration = {
 				removeScriptTypeAttributes: true,
 				removeStyleLinkTypeAttributes: true
 			},
-			inputGlobs: {
+			sourceGlobs: {
 				rootPath: ''
 			},
 			outputPaths: {

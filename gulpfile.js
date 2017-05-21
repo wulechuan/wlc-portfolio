@@ -154,13 +154,13 @@ colorfulInfo(
 
 const assetsConfig = projectConfiguration.assets;
 
-const pathForSourceRoot = getJoinedPathFrom(__dirname, pathForClientAppRoot, projectConfiguration.folderOf.source);
-const pathForOutputRoot = getJoinedPathFrom(__dirname, pathForClientAppRoot, projectConfiguration.folderOf.buildForDev);
+const pathForSourceRoot = getJoinedPathFrom(__dirname, pathForClientAppRoot, projectConfiguration.folderOfStages.source);
+const pathForOutputRoot = getJoinedPathFrom(__dirname, pathForClientAppRoot, projectConfiguration.folderOfStages.buildForDev);
 
-const folderOfCssSourceFiles = assetsConfig.css.inputGlobs.rootPath;
+const folderOfCssSourceFiles = assetsConfig.css.sourceGlobs.rootPath;
 const folderOfCssOutputFiles = assetsConfig.css.outputPaths.rootPath;
 
-const folderOfJsSourceFiles = assetsConfig.js.inputGlobs.rootPath;
+const folderOfJsSourceFiles = assetsConfig.js.sourceGlobs.rootPath;
 const folderOfJsOutputFiles = assetsConfig.js.outputPaths.rootPath;
 
 const pathForCssSourceFiles = getJoinedPathFrom(pathForSourceRoot, folderOfCssSourceFiles);

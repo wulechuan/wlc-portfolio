@@ -113,8 +113,8 @@ module.exports = function (appRootPath, configurationFileName) {
 	}
 
 	function readConfigurationFile(configurationFile) {
-		const customizedConfiguration = require(configurationFile);
-		// const customizedConfiguration = require('./wlc-client-project-configuration');
+		// const customizedConfiguration = require(configurationFile);
+		const customizedConfiguration = require('./wlc-web-client-project-configuration');
 
 		const projectConfiguration = Object.assign(
 			{},
