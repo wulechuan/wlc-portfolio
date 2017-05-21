@@ -24,9 +24,6 @@ module.exports = function (appRootPath, configurationFileName) {
 		configurationFileName = configurationFileName.trim();
 	}
 
-	if (configurationFileName.match(/[\\\/]/)) {
-		throw URIError('Invalid configuration file name: "'+configurationFileName+'".');
-	}
 
 	if (typeof appRootPath !== 'string') {
 		appRootPath = '';
@@ -34,24 +31,39 @@ module.exports = function (appRootPath, configurationFileName) {
 		appRootPath = appRootPath.trim();
 	}
 
-
 	if (!appRootPath && !configurationFileName) {
 		appRootPath = appRootDefaultPath;
 		configurationFileName = configurationFileDefaultName;
 	} else {
-		if (!configurationFileName) {
+		if (configurationFileName) {
+			const fileNameContainsSlash = !!configurationFileName.match(/\//);
+			const fileNameEndsWithADot = !!configurationFileName.match(/\.$/);
+			const fileNameIsADot = !!configurationFileName.match(/^\.\ *[\/\\]?$/);
+			const fileNameContainsInvalidFileExtesion =
+				(fileNameEndsWithADot && !fileNameIsADot) ||
+				!!configurationFileName.match(/\.\s+[\s\w]+$/)
+				;
 
-			const pathContainsSlash = !!appRootPath.match(/\//);
+			if (fileNameContainsSlash || fileNameIsADot) {
+				throw URIError('Invalid configuration file name: "'+configurationFileName+'".');
+			}
+			if (fileNameContainsInvalidFileExtesion) {
+				throw URIError('Invalid file extension in configuration file name: "'+configurationFileName+'".');
+			}
+		} else {
+			// Do not set it to default value here
+			// Because we allow the appRootPath also containing the file name
+		}
+
+		if (appRootPath) {
+			// const pathContainsSlash = !!appRootPath.match(/\//);
 			const pathEndsWithADot = !!appRootPath.match(/\.$/);
-			const pathStartsWithADot = !!appRootPath.match(/^\./);
+			// const pathStartsWithADot = !!appRootPath.match(/^\./);
 			const pathIsDot = !!appRootPath.match(/^\.\ *[\/\\]?$/);
 
 			const pathContainsInvalidFileExtesion =
-				!pathIsDot &&
-				(
-					pathEndsWithADot ||
-					!!appRootPath.match(/\.\s+[\s\w]+$/)
-				)
+				(pathEndsWithADot && !pathIsDot) ||
+				!!appRootPath.match(/\.\s+[\s\w]+$/)
 				;
 
 			if (pathContainsInvalidFileExtesion) {
@@ -60,25 +72,25 @@ module.exports = function (appRootPath, configurationFileName) {
 
 
 			const pathContainsNonTerminalDot = !!appRootPath.match(/[^\\\/\s\.]+\s*\.\w+$/);
-			const pathContainsFileExtension = pathContainsNonTerminalDot;
+			const pathContainsFileName = pathContainsNonTerminalDot;
 
 			// const pathIsSingleton = !pathContainsSlash && !pathIsDot;
 			// const pathIsSingletonFolder = pathIsSingleton && !pathContainsFileExtension;
 			// const pathIsSingletonFile   = pathIsSingleton &&  pathContainsFileExtension;
-
 			// const pathContainsFolder   = pathIsSingletonFolder || pathIsDot || pathContainsSlash;
-			const pathContainsFileName = pathContainsFileExtension;
 
-			if (pathContainsFileName) {
-				// nothing to do, because the "configurationFileContainingPath" contains a file name
-				// while the "configurationFileName" is empty.
-			} else {
-				configurationFileName = configurationFileDefaultName;
+			if (!configurationFileName) {
+				if (pathContainsFileName) {
+					const lastSlashInPath = appRootPath.search(/[\\\/](?![\s\.\w]*[\\\/])/);
+					const fileNameInPath = appRootPath.slice(lastSlashInPath+1).trim();
+					appRootPath = appRootPath.slice(0, lastSlashInPath);
+					configurationFileName = fileNameInPath;
+				} else {
+					configurationFileName = configurationFileDefaultName;
+				}
 			}
 		} else {
-			if (!appRootPath) {
-				appRootPath = appRootDefaultPath;
-			}
+			appRootPath = appRootDefaultPath;
 		}
 	}
 
@@ -89,8 +101,7 @@ module.exports = function (appRootPath, configurationFileName) {
 
 
 
-	const configurationFileContainingPath = appRootPath;
-	const configurationFile = pathTool.resolve(configurationFileContainingPath, configurationFileName);
+	const configurationFile = pathTool.resolve(appRootPath, configurationFileName);
 
 	return new wlcClientProjectBuilder(configurationFile);
 
@@ -104,12 +115,7 @@ module.exports = function (appRootPath, configurationFileName) {
 
 
 	function wlcClientProjectBuilder(configurationFile) {
-		init.call(this, configurationFile);
-	}
-
-	function init(configurationFile) {
-		const projectConfiguration = readConfigurationFile(configurationFile);
-		this.projectConfiguration = projectConfiguration;
+		this.projectConfiguration = readConfigurationFile(configurationFile);
 	}
 
 	function readConfigurationFile(configurationFile) {
