@@ -1,7 +1,7 @@
 /**
  * configuration object
  */
-var configuration = {
+const configuration1 = {
 	projectName: 'wlc-2017-05',
 	projectCaption: '吴乐川资料 2017-05',
 
@@ -108,6 +108,7 @@ var configuration = {
 		}
 	}
 };
+const configuration = {};
 
 configuration.isRunningInReleasingMode = function(nodeProcessArguments) {
 	if (!(configuration.processArguments
