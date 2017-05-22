@@ -55,7 +55,9 @@ module.exports = function (appRootPath, configurationFileName) {
 			// Because we allow the appRootPath also containing the file name
 		}
 
-		if (appRootPath) {
+		if (!appRootPath) {
+			appRootPath = appRootDefaultPath;
+		} else if (!configurationFileName) {
 			// const pathContainsSlash = !!appRootPath.match(/\//);
 			const pathEndsWithADot = !!appRootPath.match(/\.$/);
 			// const pathStartsWithADot = !!appRootPath.match(/^\./);
@@ -66,31 +68,26 @@ module.exports = function (appRootPath, configurationFileName) {
 				!!appRootPath.match(/\.\s+[\s\w]+$/)
 				;
 
-			if (pathContainsInvalidFileExtesion) {
-				throw URIError('Invalid file extension found in "'+appRootPath+'".');
-			}
-
-
-			const pathContainsNonTerminalDot = !!appRootPath.match(/[^\\\/\s\.]+\s*\.\w+$/);
-			const pathContainsFileName = pathContainsNonTerminalDot;
-
 			// const pathIsSingleton = !pathContainsSlash && !pathIsDot;
 			// const pathIsSingletonFolder = pathIsSingleton && !pathContainsFileExtension;
 			// const pathIsSingletonFile   = pathIsSingleton &&  pathContainsFileExtension;
 			// const pathContainsFolder   = pathIsSingletonFolder || pathIsDot || pathContainsSlash;
 
-			if (!configurationFileName) {
-				if (pathContainsFileName) {
-					const lastSlashInPath = appRootPath.search(/[\\\/](?![\s\.\w]*[\\\/])/);
-					const fileNameInPath = appRootPath.slice(lastSlashInPath+1).trim();
-					appRootPath = appRootPath.slice(0, lastSlashInPath);
-					configurationFileName = fileNameInPath;
-				} else {
-					configurationFileName = configurationFileDefaultName;
-				}
+			if (pathContainsInvalidFileExtesion) {
+				throw URIError('Invalid file extension found in "'+appRootPath+'".');
 			}
-		} else {
-			appRootPath = appRootDefaultPath;
+
+			const pathContainsNonTerminalDot = !!appRootPath.match(/[^\\\/\s\.]+\s*\.\w+$/);
+			const pathContainsFileName = pathContainsNonTerminalDot;
+
+			if (pathContainsFileName) {
+				const lastSlashInPath = appRootPath.search(/[\\\/](?![\s\.\w]*[\\\/])/);
+				const fileNameInPath = appRootPath.slice(lastSlashInPath+1).trim();
+				appRootPath = appRootPath.slice(0, lastSlashInPath);
+				configurationFileName = fileNameInPath;
+			} else {
+				configurationFileName = configurationFileDefaultName;
+			}
 		}
 	}
 
